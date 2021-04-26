@@ -5,20 +5,20 @@
 
 ### SwiftUI
 
->SwiftUI can visualize my work
->SwiftUI is good for team-based developement
->SwiftUI can port MacOS, watchOS, TvOS
->SwiftUi is plain fun ?
+* SwiftUI can visualize my work
+* SwiftUI is good for team-based developement
+* SwiftUI can port MacOS, watchOS, TvOS
+* SwiftUi is plain fun ?
 
 
 ### Reasons keep using UIKit instead of SwiftUI
 
->SwiftUI is working only on iOS 13 or later
->UIKit is much mature than SwiftUI
->Many companies already used their Legacy Code by UIKit
+* SwiftUI is working only on iOS 13 or later
+* UIKit is much mature than SwiftUI
+* Many companies already used their Legacy Code by UIKit
 
 
-그러니까, 둘 다 공부해야 한다.
+__그러니까, 둘 다 공부해야 한다.__
 
 
 
@@ -39,15 +39,15 @@
 
 ### TO-DO-LIST
 
->+중앙 상단에 랜덤으로 등장하는 숫자가 출력되게 해야 합니다.
->+정중앙에 1부터 100까지의 수치를 보여주는 직선을 출력해야 합니다.
->+Hit me! 라는 버튼을 누르면 상단에 랜덤으로 등장하는 숫자와 이용자의 숫자를 비교합니다.
->+그 값이 같다면 200점을 부여하고 멀어질 수록 적은 점수를 부여합니다.
->+해당 값을 팝업창을 통해 화면에 띄웁니다.
->+좌측 하단에 이용자의 누적 점수를 출력합니다.
->+우측 하단에 이용자의 단계를 출력합니다.
->+좌측 상단에 게임을 리셋하는 버튼을 출력합니다.
->+이 정도가 예시로 보여준 게임의 개괄을 분석하고, 해야하는 일들을 나열한 것입니다.
+* 중앙 상단에 랜덤으로 등장하는 숫자가 출력되게 해야 합니다.
+* 정중앙에 1부터 100까지의 수치를 보여주는 직선을 출력해야 합니다.
+* Hit me! 라는 버튼을 누르면 상단에 랜덤으로 등장하는 숫자와 이용자의 숫자를 비교합니다.
+* 그 값이 같다면 200점을 부여하고 멀어질 수록 적은 점수를 부여합니다.
+* 해당 값을 팝업창을 통해 화면에 띄웁니다.
+* 좌측 하단에 이용자의 누적 점수를 출력합니다.
+* 우측 하단에 이용자의 단계를 출력합니다.
+* 좌측 상단에 게임을 리셋하는 버튼을 출력합니다.
+* 이 정도가 예시로 보여준 게임의 개괄을 분석하고, 해야하는 일들을 나열한 것입니다.
 
 
 
@@ -55,14 +55,14 @@
 
 먼저, 2가지 리스트를 작성합니다.
 
-"필수적인" Minimal Viable Product as MVP
-+기능 1
-+기능 2
-+기능 3
-"있으면 좋은"
->기능 1
->기능 2
->기능 3
+* "필수적인" Minimal Viable Product as MVP
+  * 기능 1
+  * 기능 2
+  * 기능 3
+* "있으면 좋은"
+  * 기능 1
+  * 기능 2
+  * 기능 3
 
 MVP를 모두 완료한 후, 계속해서 "있으면 좋은" 기능들을 추가하는 것이 바람직합니다.
 
@@ -70,7 +70,7 @@ MVP를 모두 완료한 후, 계속해서 "있으면 좋은" 기능들을 추가
 
 **어떻게 해야 하는지 몰라도, 무엇을 해야 하는지 작성하는 것이 우선입니다.**
 
-선생님의 to-do-list는 다음과 같습니다.
+### 선생님의 to-do-list는 다음과 같습니다.
 
 1. Add an instructions label
 2. Add a target label
@@ -87,7 +87,7 @@ MVP를 모두 완료한 후, 계속해서 "있으면 좋은" 기능들을 추가
 
 
 
-다음은 선생님의 nice to haves list 입니다.
+### 다음은 선생님의 nice to haves list 입니다.
 
 1. Implement multiple rounds
 2. Implement restarting the game
