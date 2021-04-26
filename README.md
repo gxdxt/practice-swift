@@ -214,7 +214,7 @@ struct ContentView: View {
 >이때 조심해야 하는 것들은, 배치할 때 새로운 VStack View에 View를 배치할 것인지, 기존의  VStack View에 View를 추가할 것인지 위치를 잘 조절해야 합니다. 배치에서 어려울 때에는 Canvas말고 Code 쪽으로 배>치를 해주어도 됩니다.
 >이제 기본적인 to-do-list를 모두 완료했습니다.
 
-'''s
+'''swift
 
 import SwiftUI
 
