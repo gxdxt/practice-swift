@@ -244,4 +244,58 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 ```
+## SwiftUI로 나만의 앱 만들기 3 : SwiftUI View Modifier
 
+저번 강의에서 배치한 to-do-list만 가지고는, 매력적인 앱이라고 할 수 없습니다.
+
+오늘 해야할 것은 SwiftUI에 내장되어 있는 **Modifiers를 통해 앱에 '매력'을 추가**할 것입니다.
+
+```swift
+Text("PUT THE BULLSEYE \nAS CLOSE AS YOU CAN DO\n🤪")
+                .bold()
+                .kerning(2.0)
+                .multilineTextAlignment(.center)
+                .lineSpacing(4.0)
+                .font(.footnote)
+```
+modifier를 통해 기본적인  Text View가 Style을 갖게 되었습니다.
+
+하지만 이때 꼭 염두해야 하는 것은, 해당 Style들은 누적되는 것이 아니라 독립적으로 부여됩니다.
+
+캡처한 이미지를 예로 들자면, Text에 opacity(0.5) modifier를 통해 투명도가 0.5가 되었습니다. 그 후, border modifier를 통해 테두리가 생겼는데, 이 때 테두리는 투명도과 관련이 없습니다.
+
+
+하지만 **순서는 중요합니다.**
+
+만약, border modifier가 먼저 나오고 opacity가 후에 추가된다면, border 역시 투명도를 가지게 됩니다.
+
+>>오류가 나거나, 개념에 대해 잘 모를 때, Help 탭에 있는 'Developer Documentation'을 클릭하거나 해당 단축키를 눌러 문서를 확인하는 것도 도움이 될 수 있습니다.
+>>해당 문서에는 특정 modifier가 적용되는 범위에 대해 알려줍니다.
+
+modifier가 적용되는 범위를 벗어난 경우는 다음과 같습니다.
+
+```swift
+struct ContentView: View {
+    var body: some View {
+        VStack {
+            Text("PUT THE BULLSEYE \nAS CLOSE AS YOU CAN DO\n🤪").bold().multilineTextAlignment(.center)
+                .lineSpacing(4.0)
+                .font(.footnote)
+                .kerning(2.0) //여기에 위치하게 되면, 오류가 발생
+```
+
+kerning은 자간 사이에 대한 modifier로, Text View에만 적용이 됩니다.
+하지만 *다른 modifier들로 인해 Text View가 Some View로 변환되었기에 kerning이 적용되지 않습니다.*
+
+올바른 kerning의 위치는 다음과 같습니다.
+```swift
+struct ContentView: View {
+    var body: some View {
+        VStack {
+            Text("PUT THE BULLSEYE \nAS CLOSE AS YOU CAN DO\n🤪")
+                .bold()
+                .kerning(2.0) // <<이곳이 올바른 위치
+                .multilineTextAlignment(.center)
+                .lineSpacing(4.0)
+                .font(.footnote)
+```
