@@ -126,11 +126,11 @@ MVP에는 정말 살을 다 벗겨낸 '뼈'만 놓는다는 것을 알 수 있�
 </br>
 여기서 알 수 있는 것은, SwiftUI에선 다양한 형태의 View가 존재하는 것입니다.
 </br>
-Text
-Slider
-Button
-Vertical Stack
-Horizontal Stack
+Text</br>
+Slider</br>
+Button</br>
+Vertical Stack</br>
+Horizontal Stack</br>
 이러한 View들의 공통점은 모두 화면에 그려질 수 있다는 것(can be drawn on the screen)입니다.
 
 
@@ -356,6 +356,8 @@ Text Template으로부터 Text instance를 생성했습니다.
 |width|
 |height|
 </br>
+
+
 |Functionality|
 |:----------------:|
 |recognize user tab|
