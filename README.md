@@ -392,7 +392,11 @@ var total: Double {
 ````
  
 
+//난데없이, 클론 코딩에 오류가 발생했다. 이를 해결하는 것이 SwiftUI의 첫 번째 오류를 해결하는 것이 될 것이다.
 
+//cannot convert value of type 'Int' to expected argument type 'Double'
+//Int 타입의 value값을 예상되는 arg타입인 Doulbe로 변환할 수 없다는데,
+//Slider에서 해당 오류가 계속해서 발생한다.
 
 
 
