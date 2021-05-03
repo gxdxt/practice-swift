@@ -397,7 +397,8 @@ var total: Double {
 //cannot convert value of type 'Int' to expected argument type 'Double'
 //Int 타입의 value값을 예상되는 arg타입인 Doulbe로 변환할 수 없다는데,
 //Slider에서 해당 오류가 계속해서 발생한다.
-
+//Slider의 value 안에서 in: 1.0...100.0으로 선언을 했는데, constant는 50으로 정의했기에 오류가 발생했다.
+//constant(50.0)으로 변경하니 오류가 사라졌다.
 
 
 
