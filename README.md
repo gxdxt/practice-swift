@@ -401,9 +401,23 @@ var total: Double {
 //constant(50.0)으로 변경하니 오류가 사라졌다.
 
 
+## SwiftUI로 나만의 앱 만들기 5 : Solved Problems
 
 
+오늘 강의는 초보자들이 흔히 하는 실수들에 대해 이야기합니다.
 
+1.오타
+>>value of type 'text' has no member 'blahblah'라는 에러 메시지는 blahblah라는 메소드가 text type에 존재하지 않는다는 말입니다.
+2.띄어쓰기와 대문자 처리
+>>SwiftUI는 굉장히 민감하기에 띄어쓰기와 대문자인 부분을 놓치면 에러가 납니다.
+3.괄호 생략
+>>괄호를 열면 반드시 닫아야 합니다. parentheses - 소괄호 / curly braces - 중괄호
+
+
+<br>
+빨간색 에러 메시지와 노란색 에러 메시지의 차이<br>
+*빨간색: 앱을 구동시킬 수 없습니다. (fatal)
+*노란색: 에러 발생을 경고합니다. (informative)
 
 
 
