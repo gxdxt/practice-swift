@@ -421,7 +421,19 @@ var total: Double {
 
 
 
+## SwiftUI로 나만의 앱 만들기 6 : Buttons and Actions
 
+ +Call a Method: Syntax
+ >>*Instance.methodName(parameters)*
+ >>
+ +Calling a Function: Syntax
+ >>*functionName(parameters)*
+ >>
+ +Calling a Function: Example
+ >>*print("Button pressed!")
+ >>
+
+and the CONSOLE!!
 
 
 
