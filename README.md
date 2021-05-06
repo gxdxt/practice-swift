@@ -435,6 +435,7 @@ var total: Double {
 
 and the CONSOLE!!
 
+## SwiftUI로 나만의 앱 만들기 7 : SwiftUI State
 
 
 
