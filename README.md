@@ -437,6 +437,72 @@ and the CONSOLE!!
 
 ## SwiftUI로 나만의 앱 만들기 7 : SwiftUI State
 
+State는 SwiftUi의 중요한 부분입니다.<br>
+이는 Car Dashboard와 비슷한데, 여기에는 다음과 같은 정보들이 보여집니다.
+1. Numerice Values: speed, fuel level, distance traveled 
+2. Boolean Value: low oil, needs maintances
+
+<br>
+이 모든 것들이 합쳐져서, Car의 **STATE**를 보여줍니다.
+<br>
+운전자의 움직임에 따라,
++ 엑셀을 밟으면
++ 차는 더 빨리 나갈 것이고
++ Dashboard는 update됩니다.
+<br>
+내부 상황에도 변화가 생깁니다.
++ 차는 가스를 태울 것이고,
++ Dashboard는 update됩니다.
+
+<br>
+<h3>*STATE나 DASHBOARD가 sync가 맞지 않으면? 큰 문제가 발생합니다!!*</h3>
+<br>
+이렇게 개발자가 잘 사용할 수 있게 도와주는 것이 바로 이 'STATE'입니다.
+
+<br>
+이제 실제 어떻게 사용하는지 알아봅시다.
+```swift
+//the pop up alert가 visible 여부의 상관없이 선언
+    //@STATE: this code means 'we want SwiftUI to automatically recompute the body'
+    //private: this variable is private to content view and other objects and other structures, should not be able to access it.
+    //var: this variable means 'can be change'
+    //이름 적고
+    //: type
+    //= value
+    
+    @State private var alertIsVisible: boolean = false
+    
+    var body: some View {
+        VStack {
+            Text("PUT THE BULLSEYE \nAS CLOSE AS YOU CAN DO\n🤪")
+                .bold()
+                .kerning(2.0)
+                .multilineTextAlignment(.center)
+                .lineSpacing(4.0)
+                .font(.footnote)
+            Text("89")
+                .kerning(-1.0)
+                .font(.largeTitle)
+                .fontWeight(.black)
+                
+            HStack {
+                Text("1").bold()
+                Slider(value: .constant(50.0), in: 1.0...100.0)
+                Text("100").bold() 
+            }
+            Button(action: {
+                print("hello, there")
+                //self: this랑 비슷한 것 같아
+                self.alertIsVisible = true
+            }) {
+                Text("Hit me")
+            }
+        }
+    }
+}
+```
+
+
 
 
 
