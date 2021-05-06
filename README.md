@@ -462,7 +462,18 @@ State는 SwiftUi의 중요한 부분입니다.<br>
 <br>
 이제 실제 어떻게 사용하는지 알아봅시다.
 ```swift
-//the pop up alert가 visible 여부의 상관없이 선언
+//
+//  ContentView.swift
+//  Bullseye
+//
+//  Created by yoosoony on 2021/04/27.
+//
+
+import SwiftUI
+
+struct ContentView: View {
+    
+    //the pop up alert가 visible 여부의 상관없이 선언
     //@STATE: this code means 'we want SwiftUI to automatically recompute the body'
     //private: this variable is private to content view and other objects and other structures, should not be able to access it.
     //var: this variable means 'can be change'
@@ -470,7 +481,7 @@ State는 SwiftUi의 중요한 부분입니다.<br>
     //: type
     //= value
     
-    @State private var alertIsVisible: boolean = false
+    @State private var alertIsVisible: Bool = false
     
     var body: some View {
         VStack {
@@ -497,10 +508,30 @@ State는 SwiftUi의 중요한 부분입니다.<br>
             }) {
                 Text("Hit me")
             }
-        }
+            .alert(isPresented: $alertIsVisible,
+                   content: {
+                    return Alert(title: Text("Hello there and there"),
+                    message: Text("this is my first pop up"),
+                    dismissButton: .default(Text("Awesome!")))
+        })
     }
 }
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+        ContentView()
+            .previewLayout(.fixed(width: 568, height: 320))
+    }
+}
+}
+
 ```
+<br>
+automatic previewing = option + cmd + P
+play = cmd + R
+<br>
+
 
 
 
