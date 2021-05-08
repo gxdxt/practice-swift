@@ -532,11 +532,18 @@ automatic previewing = option + cmd + P
 play = cmd + R
 <br>
 
+**option + click을 하면 해당 코드에 대한 정보를 얻을 수 있습니다.**
 
-
-
-
-
-
+이제 안에 있는 Slider를 움직이게 하기 위해 원래 주었던 .constant(50.0)을 지우고<br>
+State를 선언한다.
+```swift
+@State private var sliderValue: Double = 50.0
+```
+<br>
+그리고 밑의 .constant(50.0)을 지우고, 위에 선언한 var을 binding합니다.
+```swift
+Slider(value: self.$sliderValue, in: 1.0...100.0)
+                Text("100").bold() 
+```
 
 
