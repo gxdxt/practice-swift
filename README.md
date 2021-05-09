@@ -546,4 +546,31 @@ Slider(value: self.$sliderValue, in: 1.0...100.0)
                 Text("100").bold() 
 ```
 
+## SwiftUI로 나만의 앱 만들기 8 : Strings
+
+String Interpellation : placeholder 기능을 사용할 수 있습니다.
+
+```swift
+"Hello, \(name)!"
+
+//will be "Hello, Ray!"
+```
+
+<br>
+해당 기능을 통해, slider가 가진 value값을 print out할 수 있습니다.
+```swift
+Button(action: {
+                print("hello, there")
+                //self: this랑 비슷한 것 같아
+                self.alertIsVisible = true
+            }) {
+                Text("Hit me")
+            }
+            .alert(isPresented: $alertIsVisible,
+                   content: {
+                    return Alert(title: Text("Hi, there?"),
+                    message: Text("The Slider's value is \(self.sliderValue)."),//period(.) end를 나타내는 듯?
+                    dismissButton: .default(Text("RG!")))
+        })
+```
 
