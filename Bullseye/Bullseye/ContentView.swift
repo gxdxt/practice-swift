@@ -18,6 +18,7 @@ struct ContentView: View {
     //= value
     
     @State private var alertIsVisible: Bool = false
+    @State private var sliderValue: Double = 50.0
     
     var body: some View {
         VStack {
@@ -34,7 +35,7 @@ struct ContentView: View {
                 
             HStack {
                 Text("1").bold()
-                Slider(value: .constant(50.0), in: 1.0...100.0)
+                Slider(value: self.$sliderValue, in: 1.0...100.0)
                 Text("100").bold() 
             }
             Button(action: {
@@ -46,8 +47,10 @@ struct ContentView: View {
             }
             .alert(isPresented: $alertIsVisible,
                    content: {
+                    //현재 출력되는 변수가 double형이라 소수점이 거추장스럽다.
+                    var roundedValue: Int = Int(self.sliderValue.rounded())
                     return Alert(title: Text("먼지알지?"),
-                    message: Text("mgrg?"),
+                    message: Text("The Slider's value is \(self.sliderValue), rounded Value is \(roundedValue)."),//period(.) end를 나타내는 듯?
                     dismissButton: .default(Text("rg!")))
         })
     }
