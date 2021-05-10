@@ -532,11 +532,71 @@ automatic previewing = option + cmd + P
 play = cmd + R
 <br>
 
+**option + click을 하면 해당 코드에 대한 정보를 얻을 수 있습니다.**
 
+이제 안에 있는 Slider를 움직이게 하기 위해 원래 주었던 .constant(50.0)을 지우고<br>
+State를 선언한다.
+```swift
+@State private var sliderValue: Double = 50.0
+```
+<br>
+그리고 밑의 .constant(50.0)을 지우고, 위에 선언한 var을 binding합니다.
+```swift
+Slider(value: self.$sliderValue, in: 1.0...100.0)
+                Text("100").bold() 
+```
 
+## SwiftUI로 나만의 앱 만들기 8 : Strings
 
+String Interpellation : placeholder 기능을 사용할 수 있습니다.
 
+```swift
+"Hello, \(name)!"
 
+//will be "Hello, Ray!"
+```
 
+<br>
+해당 기능을 통해, slider가 가진 value값을 print out할 수 있습니다.
+```swift
+Button(action: {
+                print("hello, there")
+                //self: this랑 비슷한 것 같아
+                self.alertIsVisible = true
+            }) {
+                Text("Hit me")
+            }
+            .alert(isPresented: $alertIsVisible,
+                   content: {
+                    return Alert(title: Text("Hi, there?"),
+                    message: Text("The Slider's value is \(self.sliderValue)."),//period(.) end를 나타내는 듯?
+                    dismissButton: .default(Text("RG!")))
+        })
+```
 
+## SwiftUI로 나만의 앱 만들기 9 : Var
 
+Variables는 Children's toy block같은 것입니다.
+각각의 모양에 맞는 도형을 집어넣는 장난감처럼,<br>
+우리는 container 모양에 맞는 contents를 넣어야 합니다.<br>
+
+var / let<br>
+var는 변하는 것을, let은 고정된 것을 의미합니다.
+<br>
+
+casting / conversion<br>
+둘 모두 형변환을 의미합니다.<br>
+float형태의 var를 int container에 담기 위해서는 casting이 필요합니다.<br>
+```swift
+var x : Float = 3.14
+var y : int = int(x) //casting
+```
+<br>
+casting은 rounded(반올림)이 아닌 truncated(버림)을 합니다. 진짜 rounded를 하고싶으면,<br>
+```swift
+int(x.rounded())//를 하면 됩니다.
+```
+<br>
+var의 생명주기는 해당 var가 프로그램에 어떤 부분에 속해 있는가에 따라 달라집니다.<br>
+이는 scope이라고 표현하며, 생명주기가 짧은 var를 local variable이라고 합니다.<br>
+**선언된 scope 안에 사용되는 변수는 self.을 하지 않습니다.**<br>
