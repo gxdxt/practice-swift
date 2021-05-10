@@ -574,3 +574,29 @@ Button(action: {
         })
 ```
 
+## SwiftUI로 나만의 앱 만들기 9 : Var
+
+Variables는 Children's toy block같은 것입니다.
+각각의 모양에 맞는 도형을 집어넣는 장난감처럼,<br>
+우리는 container 모양에 맞는 contents를 넣어야 합니다.<br>
+
+var / let<br>
+var는 변하는 것을, let은 고정된 것을 의미합니다.
+<br>
+
+casting / conversion<br>
+둘 모두 형변환을 의미합니다.<br>
+float형태의 var를 int container에 담기 위해서는 casting이 필요합니다.<br>
+```swift
+var x : Float = 3.14
+var y : int = int(x) //casting
+```
+<br>
+casting은 rounded(반올림)이 아닌 truncated(버림)을 합니다. 진짜 rounded를 하고싶으면,<br>
+```swift
+int(x.rounded())//를 하면 됩니다.
+```
+<br>
+var의 생명주기는 해당 var가 프로그램에 어떤 부분에 속해 있는가에 따라 달라집니다.<br>
+이는 scope이라고 표현하며, 생명주기가 짧은 var를 local variable이라고 합니다.<br>
+**선언된 scope 안에 사용되는 변수는 self.을 하지 않습니다.**<br>
