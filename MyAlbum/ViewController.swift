@@ -28,5 +28,16 @@ class ViewController: UIViewController {
         //화면에 출력한다.
     }
     
+    
+    @IBAction func lemaire(_ sender: Any) {
+        let alert = UIAlertController(title: "Christophe Lemaire", message: "French", preferredStyle: .alert)
+        
+        let buy = UIAlertAction(title: "buy", style: .default, handler: nil)
+        
+        alert.addAction(buy)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
