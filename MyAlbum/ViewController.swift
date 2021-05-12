@@ -10,13 +10,17 @@ import UIKit
 class ViewController: UIViewController {
     var currentValue = 0
     
+    //변화된 가격으로 화면에 노출시키려면, outlet을 연결해야 한다.
+    //UIlabel과 ViewController와 연동을 해야한다.
+    @IBOutlet weak var priceLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        priceLabel.text = "₩ \(currentValue)"
     }
 
     @IBAction func hello(_ sender: Any) {
-        let message = "가격은 ₩\( currentValue)입니다." //String에 var 담기
+        let message = "가격은 \( currentValue) 입니다." //String에 var 담기
         //String Interplation??
         
         let alert = UIAlertController(title: "hello", message: message, preferredStyle: .alert)
@@ -38,6 +42,8 @@ class ViewController: UIViewController {
         currentValue = Int(randomPrice)
         //***여기서 질문은, 언제 randomPrice값이 변화하는가? -- 이 함수가 속해있는 함수가 호출될 때마다!!! (여기선 Alert 창이 뜰 때마다)
         
+        //여기도 입력해줘야하는 듯? (저기 위에는 최초 노출)
+        priceLabel.text = "₩ \(currentValue)"
         
         
         
