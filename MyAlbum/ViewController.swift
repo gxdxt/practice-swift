@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  MyAlbum
 //
-//  Created by 유승태 on 2021/05/11.
+//  Created by yoosoony on 2021/05/11.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        priceLabel.text = "₩ \(currentValue)"
+        refresh()
     }
 
     @IBAction func hello(_ sender: Any) {
@@ -35,6 +35,12 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         //화면에 출력한다.
         
+        refresh()
+      
+        
+    }
+    
+    func refresh(){
         //계속해서 변하는 값 설정
        let randomPrice =  arc4random_uniform(10000)+1
         //0~10000까지의 값들 중 랜덤하게 설정, 0인 값이 나오면 재미 없으니 +1 추가
@@ -46,10 +52,7 @@ class ViewController: UIViewController {
         priceLabel.text = "₩ \(currentValue)"
         
         
-        
     }
-    
-    
     
     
 }
