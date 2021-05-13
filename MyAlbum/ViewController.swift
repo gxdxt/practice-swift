@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var currentValue = 0
+    var currentValue = 0//instance var (object 내의 전반적인 사용)
     
     //변화된 가격으로 화면에 노출시키려면, outlet을 연결해야 한다.
     //UIlabel과 ViewController와 연동을 해야한다.
@@ -22,21 +22,20 @@ class ViewController: UIViewController {
     @IBAction func hello(_ sender: Any) {
         let message = "가격은 \( currentValue) 입니다." //String에 var 담기
         //String Interplation??
+        //local var (method 안에서만 사용)
         
         let alert = UIAlertController(title: "hello", message: message, preferredStyle: .alert)
         //alert라는 모양을 만들고
         
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil) //nil은 아무것도 핸들해주지 않는다.는 의미
+        let action = UIAlertAction(title: "OK", style: .default, handler: { action in self.refresh() }) //nil은 아무것도 핸들해주지 않는다.는 의미
         //action이라는 모양과 기능을 추가하고
+        //+refresh타이밍이 원하는 모습과 달라서, alert창이 꺼질 때 refresh되는 것을 설계하고 싶다 >> 'closure'(사용 가능한 코드 블럭)를 이용한다
         
         alert.addAction(action)
         //alert모양 안에 action이라는 action을 추가하고
         
         present(alert, animated: true, completion: nil)
         //화면에 출력한다.
-        
-        refresh()
-      
         
     }
     
