@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,27 +13,68 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyAlbum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAs-NC-hSa">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Au4-M9-eGY">
+                                <rect key="frame" x="145" y="647" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="3Fa-Pe-rV2"/>
+                                    <constraint firstAttribute="width" constant="100" id="lX2-zM-L44"/>
+                                </constraints>
+                                <state key="normal" title="REFRESH">
+                                    <color key="titleColor" systemColor="systemOrangeColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="hello:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tTI-TT-VXu"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Canvas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trE-wu-iC0">
+                                <rect key="frame" x="143" y="96" width="105" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="kaws_stormtrooper 복사본 2" translatesAutoresizingMaskIntoConstraints="NO" id="OYc-Eu-sI7">
+                                <rect key="frame" x="35" y="180" width="320" height="320"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$36000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdm-wn-lKx">
+                                <rect key="frame" x="139" y="572" width="112" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Au4-M9-eGY" firstAttribute="centerX" secondItem="OYc-Eu-sI7" secondAttribute="centerX" id="1Ou-tm-OvZ"/>
+                            <constraint firstItem="Au4-M9-eGY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1vp-EJ-M26"/>
+                            <constraint firstItem="trE-wu-iC0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="52" id="5UP-3C-abu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Au4-M9-eGY" secondAttribute="bottom" constant="63" id="8Or-5e-JHh"/>
+                            <constraint firstItem="Au4-M9-eGY" firstAttribute="top" secondItem="zdm-wn-lKx" secondAttribute="bottom" constant="39" id="F87-W4-d2X"/>
+                            <constraint firstItem="Au4-M9-eGY" firstAttribute="centerX" secondItem="trE-wu-iC0" secondAttribute="centerX" id="MzE-Ia-oLw"/>
+                            <constraint firstItem="OYc-Eu-sI7" firstAttribute="top" secondItem="trE-wu-iC0" secondAttribute="bottom" constant="48" id="cyK-aI-QJZ"/>
+                            <constraint firstItem="Au4-M9-eGY" firstAttribute="centerX" secondItem="zdm-wn-lKx" secondAttribute="centerX" id="peQ-hK-DC9"/>
+                            <constraint firstItem="trE-wu-iC0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="143" id="xxL-N7-eMC"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="priceLabel" destination="zdm-wn-lKx" id="mUS-X9-3Gd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="76"/>
+            <point key="canvasLocation" x="20" y="75.355450236966817"/>
         </scene>
     </scenes>
     <resources>
+        <image name="kaws_stormtrooper 복사본 2" width="82" height="178.33332824707031"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
