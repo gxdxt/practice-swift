@@ -38,4 +38,22 @@ func printTotalPrice3(가격 price: Int, 개수 count: Int) {
 }
 
 printTotalPrice3(가격: 1500, 개수: 5)
+//
+//for i in 1...10 {
+//    printTotalPrice(price: 1500, count: i)
+//}
+
+//default가격 설정
+func printTotalPriceWithDefaultValue(price : Int = 1500, count : Int){
+    print("Total Price : \(price * count)")
+}
+
+printTotalPriceWithDefaultValue(count: 5)
+
+func totalPrice(price: Int, count: Int) -> Int { //'-> Int'는 반환하는 값이 Int라는 표시
+    let totalPriceReturn = price * count
+    return totalPriceReturn
+}
+
+let calculatedPrice = totalPrice(price: 10000, count: 77)
 
