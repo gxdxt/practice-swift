@@ -43,5 +43,24 @@ if let unwrappedCarName = carName {
     print("the CarName is nil")
 }
 
+func printParsedInt(from: String) { //String으로부터 parse하겠다.는 뜻
+//    if let parseInt = Int(from) {
+//        print(parseInt)
+//        //Cyclomatic Complexity: 복잡성
+//        //level depth가 깊어지면 cc가 높아지니 줄여야 한다고 review가 나옴
+//    } else {
+//        print("failed to parse String to Int")
+//    }
+    guard let parseInt = Int(from) else {
+        print("failed to parse String to Int")
+        return
+    } //방어막 생성
+    print(parseInt)
+}
 
+printParsedInt(from: "100")
+printParsedInt(from: "you")
+
+// 4.nil일 때, default값 추가
+let myCarName: String = carName ?? "Bentayga"
 
