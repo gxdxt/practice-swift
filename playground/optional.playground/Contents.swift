@@ -29,7 +29,7 @@ let num = Int("10") //얘 타입은 Int지? >> optional Int다!
 // 3. Opitional binding(guard) >> 부드럽게
 // 4. Nil coalescing >> 꺼냈는데, 없으면 default를 주자
 
-print(carName)
+//print(carName)
 //이 상태로는 Optional이라는 상자 안에 들어와 있는 값이다.
 
 //상자에서 꺼내려면 다음과 같이 작성해야 한다.
@@ -64,3 +64,41 @@ printParsedInt(from: "you")
 // 4.nil일 때, default값 추가
 let myCarName: String = carName ?? "Bentayga"
 
+//도전과제
+
+// 1. 최애 음식 이름을 담는 변수를 작성하시오. String optional type
+var favFoodName: String? = "집밥"
+
+// 2. 해당 optional binding을 이용해 값을 확인하시오.
+// 2.1. 강제로 해당 opitional binding
+print(favFoodName!)
+
+// 2.2. let if를 통한 optional binding
+if let printFavFoodName = favFoodName {
+    print(printFavFoodName)
+} else {
+    print("I don't have a favorite food.")
+}
+
+// 2.3. guard를 통한 optional binding
+func printFavFoodName2(from: String?){
+    guard let favFoodName2 = from else {
+        print("I don't have a favorite food.")
+        return
+    }
+    print(favFoodName2)
+}
+printFavFoodName2(from: nil)
+
+// 2.4. default
+let printFavFoodName3 = favFoodName ?? "I don't have a favorite food."
+
+// 3. nickname을 받아서 출력하는 함수를 만드시오. 조건: 입력 param은 String optional
+func printNickName(nickName: String?){
+    guard let getNickName = nickName else{
+        print("I don't have a nickname")
+        return
+    }
+    print(getNickName)
+}
+printNickName(nickName: nil)
