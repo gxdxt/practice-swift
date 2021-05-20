@@ -38,3 +38,60 @@ evenNumbers.max()
 evenNumbers[0]
 evenNumbers[1]
 evenNumbers[9]
+
+// range를 집어넣기
+let firstThree = evenNumbers[0...2]
+
+//값들 가지고 있는 것 확인
+evenNumbers.contains(3)
+evenNumbers.contains(4)
+
+//item 추가하기
+evenNumbers.insert(0, at: 0)
+
+//item 제거하기
+evenNumbers.remove(at: 0)
+
+//특정 item update
+evenNumbers[0] = -2
+evenNumbers[0...2] = [-2, 0, 2]
+
+
+//순서 변경
+evenNumbers.swapAt(0, 1)
+
+evenNumbers
+
+//빈 통으로 만들기
+//evenNumbers.removeAll()
+//evenNumbers = []
+
+for num in evenNumbers {
+    print(num)
+}
+
+//해당 값 index 가져오기
+for (index, num) in evenNumbers.enumerated(){
+    print("\(index) : \(num)")
+}
+
+//(실제로 사라지진 않고) 현재 앞에 3개를 털고 출력
+let firstThreeRemoved = evenNumbers.dropFirst(3)
+print(firstThreeRemoved)
+
+//(실제 array에서 값은 사라지지 않고) 맨 뒤 빼고 출력
+let lastRemoved = evenNumbers.dropLast()
+print(lastRemoved)
+
+//앞에 3개만 출력
+let firstThree2 = evenNumbers.prefix(3)
+//뒤에 3개만 출력
+let lastThree = evenNumbers.suffix(3)
+
+// ******진짜 알아야 하는 것******
+
+// 1. isEmpty
+// 2. count
+// 3. 해당 index 접근법 (evenNumbers[3])
+// 4. 해당 index 빼오는 법 (for (index, num) in evenNumbers.enumerated() { print("\(index) : \(num)|) }
+
