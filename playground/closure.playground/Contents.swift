@@ -58,3 +58,33 @@ increment()
 increment()
 
 count
+
+// closure
+
+// func은 closure의 한 가지 타입
+
+// 1. global func
+// 2. nested func
+// 3. closure expressions >>> 지금 배우는 부분
+
+// swift 홈페이지 가면 정확한 정의를 볼 수 있다.
+
+// 함수처럼 사용하는 코드 블럭
+// 함수와 다르게 이름이 없다
+
+// first class type
+//- 변수에 할당할 수 있다
+//- 인자로 받을 수 있다
+//- 리턴할 수 있다
+
+// closure가 자주 쓰이는 case
+// 1. Completion Block
+// 어떠한 task가 완료되었을 때 closure가 쓰인다.
+// app같은 곳에서 network를 통해 data를 받는다는 가정, (비동기적으로 언제 끝날지 모르는 상황에 data가 모두 받아진다면 closure가 발동하게끔) closure를 사용한다.
+
+// 2. Higher Order Function
+// 함수인데 인자를 함수로 받는 경우 - 고계 함수!
+// input을 함수로 넘겨줄 때 그 즉시 closure를 만들어서 넘겨주는 경우
+// Map, filter, 미지수 등 고계함수
+
+
