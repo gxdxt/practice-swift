@@ -139,4 +139,8 @@ func trailingClosure (message: String, choSimpleClosure: () -> Void) {
 
 trailingClosure(message: "Michael", choSimpleClosure: { print("I'm waiting you")
 })
+// trailing closure 의 특징으로 위의 함수를 축약하여 표현할 수 있다.
+trailingClosure(message: "Michael") {
+    print("I'm waiting you, trailing Closure")
+}
 
