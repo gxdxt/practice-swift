@@ -154,8 +154,15 @@ printClosestStore(currentLocation: myLocation, stores: stores)
 
 // Challenge
 
+// Protocol은 어떠한 서비스를 이용하기 위해 수행해야 하는 일련의 규약
+// CustomStringConvertible
+
 // 1. 강의 이름, 강사 이름, 학생 수를 가지는 Structure 만들기 (Lecture)
-struct Lecture {
+struct Lecture : CustomStringConvertible {
+    var description: String {
+        return "Title: \(lecName), PROFESSOR: \(profName)"
+    } // CustomStringConvertible을 위한 조건 (해당 코드가 있어야 사용할 수 있다)
+        
     let profName: String
     let lecName: String
     let studentNum: Int
