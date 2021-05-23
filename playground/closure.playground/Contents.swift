@@ -87,4 +87,56 @@ count
 // input을 함수로 넘겨줄 때 그 즉시 closure를 만들어서 넘겨주는 경우
 // Map, filter, 미지수 등 고계함수
 
+// basic format
+//{ (parameters) -> return type in
+//    statements
+// }
+
+// 1. cho simple closure
+let choSimpleClosure = {
+    
+}
+
+choSimpleClosure() // func으로 선언 안하니까 closure인 듯?
+
+// 2. 코드블럭을 구현한 closure
+let codeBlockClosure = {
+    print("Hello, closure")
+}
+
+codeBlockClosure()
+
+// 3. input param closure
+let inputParamClosure: (String) -> Void = { name in
+    print("Hello, \(name)")
+}
+
+inputParamClosure("Starboy")
+
+// 4. return closure
+let returnClosure: (String) -> String = { name in
+    let msg = "Hi, this is \(name)"
+    return msg
+}
+
+returnClosure("st")
+
+// 5. closure as a param in func
+func someSimpleFunc(choSimpleClosure: () -> Void) {
+    print("함수에서 호출 되었습니다.")
+    choSimpleClosure() //()를 쓰는 경우와 안쓰는 경우
+}
+
+someSimpleFunc(choSimpleClosure: {
+    print("Hello! there")
+})
+
+// 6. trailing closure
+func trailingClosure (message: String, choSimpleClosure: () -> Void) {
+    print("함수에서 호출 되었습니다. \(message)")
+    choSimpleClosure() //()를 쓰는 경우와 안쓰는 경우
+}
+
+trailingClosure(message: "Michael", choSimpleClosure: { print("I'm waiting you")
+})
 
