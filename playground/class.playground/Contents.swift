@@ -71,3 +71,18 @@ personClass2 = PersonClass(firstName: "soony", lastName: "yoo")
 personClass1.firstName
 personClass2.firstName
 
+
+//Structure를 사용해야 하는 경우
+// 1. 두 Object를 "같다, 다르다"로 비교해야 하는 경우
+// 2. Copy된 Object들이 독립적인 상태를 가져야 하는 경우
+// 3. 코드에서 Object의 데이터를 여러 Thread에 걸쳐 사용하는 경우
+
+//Class를 사용해야 하는 경우
+// 1. 두 Object의 instance '자체' (안의 value가 아니라)가 같음을 확인해야 하는 경우
+// 2. 하나의 Object가 필요하고, 여러 대상에 의해 접근되고 변경되어야 하는 경우
+
+
+// 결론
+// 1. 일단 Struct로 생성
+// 2. 
+
