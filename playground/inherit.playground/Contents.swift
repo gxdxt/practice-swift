@@ -155,4 +155,11 @@ if let son = athelete1 as? FootballPlayer {
     print("--> team:\(son.footballTeam)")
 }
 
+// 상속은 언제?
+// 1. Single Responsibility(해당 클래스가 자신의 역할을 착실히 수행하게끔)
+// 2. Type Safety(타입이 분명해야할 때)
+// 3. Shared Base Classes(다자녀 class : 구현 동작이 여러 가지가 있을 때)
+// 4. Extensibility(확장성)
+// 5. Identity(어떤 객체인지 상속을 통해 검증 가능)
+
 
