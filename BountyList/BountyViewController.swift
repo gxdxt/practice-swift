@@ -63,6 +63,11 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     //클릭됐을 때 어떻게 할꺼야? -> UITableViewDelegate
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         print("I'm just clicked --> \(indexPath.row)")
+        
+        //Segueway 실행
+        performSegue(withIdentifier: "showDetail", sender: nil)
+        
+        //click 되었을 때, 색 변하는 것은 selection!
     }
     
     /*
