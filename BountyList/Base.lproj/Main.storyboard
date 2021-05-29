@@ -106,18 +106,47 @@
                                     <action selector="close:" destination="USY-UF-Qfb" eventType="touchUpInside" id="3Ru-Ex-H3C"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Wi-U8-yVP">
+                                <rect key="frame" x="50" y="100" width="314" height="448.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4Wi-U8-yVP" secondAttribute="height" multiplier="7:10" id="AUe-Ai-Izi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="LEMAIRE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Iz-2U-8CO">
+                                <rect key="frame" x="81" y="580" width="254" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Christophe Lemaire" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CW-FL-Jsp">
+                                <rect key="frame" x="81" y="655" width="254" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LfX-UL-Fdf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0Iz-2U-8CO" firstAttribute="top" secondItem="4Wi-U8-yVP" secondAttribute="bottom" constant="31.5" id="0c4-7U-pM3"/>
+                            <constraint firstItem="4Wi-U8-yVP" firstAttribute="top" secondItem="LfX-UL-Fdf" secondAttribute="top" constant="100" id="54D-FR-4BG"/>
                             <constraint firstItem="LfX-UL-Fdf" firstAttribute="top" secondItem="xGQ-86-OmP" secondAttribute="top" constant="-20" id="9OL-yN-3k3"/>
+                            <constraint firstItem="0Iz-2U-8CO" firstAttribute="centerY" secondItem="4Wi-U8-yVP" secondAttribute="centerY" id="V7q-Qh-x9c"/>
+                            <constraint firstItem="4Wi-U8-yVP" firstAttribute="leading" secondItem="LfX-UL-Fdf" secondAttribute="leading" constant="50" id="cIT-pp-idW"/>
+                            <constraint firstItem="4Wi-U8-yVP" firstAttribute="centerX" secondItem="LfX-UL-Fdf" secondAttribute="centerX" id="cke-pX-3Fx"/>
                             <constraint firstItem="xGQ-86-OmP" firstAttribute="trailing" secondItem="LfX-UL-Fdf" secondAttribute="trailing" constant="-16" id="lZ2-pK-okM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="brandLabel" destination="0Iz-2U-8CO" id="v3m-KP-bnQ"/>
+                        <outlet property="designer" destination="2CW-FL-Jsp" id="m83-3c-8kc"/>
+                        <outlet property="imgView" destination="4Wi-U8-yVP" id="eK8-BO-2en"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uif-Y7-21M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="981" y="74"/>
+            <point key="canvasLocation" x="979.71014492753636" y="73.660714285714278"/>
         </scene>
     </scenes>
     <resources>

@@ -13,7 +13,19 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     let brandList = ["LEMAIRE", "Celine", "Maison Margiela", "Auralee", "Alyx", "JJJJound", "BBC", "Stussy"]
     let designerList = ["Christophe Lemaire", "Phoebe Philo", "Martin Margiela", "A Japanese", "MMW", "Justin Saunders", "Pharrell Williams", "Ralph Diaz"]
     
-    
+    //segueway 함수 실행 직전 준비하는 함수
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //detailViewController에게 Data를 준다.
+        if segue.identifier == "showDetail" {
+            let vc = segue.destination as? DetailViewController
+            if let index = sender as? Int {
+                vc?.brand = brandList[index]
+                vc?.designerName = designerList[index]
+            }
+            
+        }
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,9 +77,12 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
         print("I'm just clicked --> \(indexPath.row)")
         
         //Segueway 실행
-        performSegue(withIdentifier: "showDetail", sender: nil)
+        performSegue(withIdentifier: "showDetail", sender: indexPath.row) //몇 번째 cell이다!
         
         //click 되었을 때, 색 변하는 것은 selection!
+        
+        //몇 번째 cell이 클릭되었는지 알 수 있는 곳 -> indexPath를 가지고 있어서
+        
     }
     
     /*
