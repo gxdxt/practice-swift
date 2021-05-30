@@ -41,28 +41,27 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     //재활용되는 cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //guard쓰면 에러나네?
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListCell else {
-//            return UITableViewCell()
-//        }
-//        let img = UIImage(named: "\(brandList[indexPath.row]).jpeg")
-//    cell.imageView?.image = img
-//    cell.brandLabel.text = brandList[indexPath.row]
-//    cell.designerLabel.text = "\(designerList[indexPath.row])" //여긴 왜 불러오지??
-//
-//        return cell
-        //이거랑 밑에 if문이랑 동일한 코드
-        
-        
-       if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListCell {
-            let img = UIImage(named: "\(brandList[indexPath.row]).jpeg")
-        cell.imageView?.image = img
-        cell.brandLabel.text = brandList[indexPath.row]
-        cell.designerLabel.text = "\(designerList[indexPath.row])" //여긴 왜 불러오지??
-        
-            return cell
-        } else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListCell else {
             return UITableViewCell()
         }
+        let img = UIImage(named: "\(brandList[indexPath.row]).jpeg")
+        cell.imgView.image = img
+        cell.brandLabel.text = brandList[indexPath.row]
+        cell.designerLabel.text = "\(designerList[indexPath.row])" //여긴 왜 불러오지??
+        return cell
+        //이거랑 밑에 if문이랑 동일한 코드
+        
+//
+//       if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListCell {
+//            let img = UIImage(named: "\(brandList[indexPath.row]).jpeg")
+//        cell.imgView?.image = img
+//        cell.brandLabel.text = brandList[indexPath.row]
+//        cell.designerLabel.text = "\(designerList[indexPath.row])" //여긴 왜 불러오지??
+//
+//            return cell
+//        } else {
+//            return UITableViewCell()
+//        }
         //identifier를 cell 로 지었으니, 해당 'table view cell'의 prop.으로 가서 cell로 변경해야 한다.
         //indexPath는 cell의 위치를 의미
         //현재 UITableCell인데, 우리는 UIListCell을 쓰고싶다. -> Casting
@@ -73,7 +72,7 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     //해당 table view의 delegate가 해당 컨트롤러다 라고 세팅해야해
     
     //클릭됐을 때 어떻게 할꺼야? -> UITableViewDelegate
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("I'm just clicked --> \(indexPath.row)")
         
         //Segueway 실행
