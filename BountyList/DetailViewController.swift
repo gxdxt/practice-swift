@@ -2,20 +2,38 @@
 //  DetailViewController.swift
 //  BountyList
 //
-//  Created by 유승태 on 2021/05/28.
+//  Created by yoosoony on 2021/05/28.
 //
 
 import UIKit
 
 class DetailViewController: UIViewController {
     
+    // MVVM
+    
+    // Model
+    // - BountyInfo라는 object
+    // > BountyInfo 생성!
+    
+    // View
+    // - image View, nameLabel, bountyLabel
+    // > View들은 ViewModel를 통해서 구성되어야 한다.
+    //
+    
+    // ViewModel
+    // - ViewController가 직접적으로 access하면 안되기 때문에, 생성
+    // > View Layer에서 필요한 Method 생성!
+    // > Model 소유! (BountyInfo's'를 가지고 있어야 한다.)
+    
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var designer: UILabel!
 
     //이름이랑 현상금 정보만 있으면, 사진을 가져올 수 있다?
-    var brand: String? // optional로 선언
-    var designerName: String?
+//    var brand: String? // optional로 선언
+//    var designerName: String?
+    
+    var bountyInfo: Bounty
     
     //view가 memory에 올라온 시점에 실행되는 함수
     //보이기 바로 직전
