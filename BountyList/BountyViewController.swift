@@ -167,21 +167,7 @@ class ListCell: UITableViewCell {
     }
 }
 
-//MVVM 시작
-struct BountyInfo {
-    let brand: String
-    let designerName: String
-    
-    var image: UIImage? {
-        return UIImage(named: "\(brand).jpeg")
-    }
-    
-    init(brand: String, designerName: String) {
-        self.brand = brand
-        self.designerName = designerName
-    }
 
-}
 // ViewModel이 model을 가지고 있어야 한다.
 class BountyViewModel {
     //밑에 MVVM 적용을 위해 대체할 let 선언
