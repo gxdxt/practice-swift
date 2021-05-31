@@ -26,18 +26,19 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     // > View Layer에서 필요한 Method 생성!
     // > Model 소유! (BountyInfo's'를 가지고 있어야 한다.)
     
-    //밑에 MVVM 적용을 위해 대체할 let 선언
-    let bountyInfoList: [BountyInfo] = [
-        BountyInfo(brand: "LEMAIRE", designerName: "Christophe Lemaire"),
-        BountyInfo(brand: "Celine", designerName: "Phoebe Philo"),
-        BountyInfo(brand: "Maison Margiela", designerName: "Martin Margiela"),
-        BountyInfo(brand: "Auralee", designerName: "A Japanese"),
-        BountyInfo(brand: "Alyx", designerName: "MMW"),
-        BountyInfo(brand: "JJJJound", designerName: "Justin Saunders"),
-        BountyInfo(brand: "BBC", designerName: "Pharrell Williams"),
-        BountyInfo(brand: "Stussy", designerName: "Ralph Diaz")
-    ]
+//    //밑에 MVVM 적용을 위해 대체할 let 선언
+//    let bountyInfoList: [BountyInfo] = [
+//        BountyInfo(brand: "LEMAIRE", designerName: "Christophe Lemaire"),
+//        BountyInfo(brand: "Celine", designerName: "Phoebe Philo"),
+//        BountyInfo(brand: "Maison Margiela", designerName: "Martin Margiela"),
+//        BountyInfo(brand: "Auralee", designerName: "A Japanese"),
+//        BountyInfo(brand: "Alyx", designerName: "MMW"),
+//        BountyInfo(brand: "JJJJound", designerName: "Justin Saunders"),
+//        BountyInfo(brand: "BBC", designerName: "Pharrell Williams"),
+//        BountyInfo(brand: "Stussy", designerName: "Ralph Diaz")
+//    ]
     
+    let viewModel = BountyViewModel()
     
     //List에 뿌려줄 이름 설정
 //    let brandList = ["LEMAIRE", "Celine", "Maison Margiela", "Auralee", "Alyx", "JJJJound", "BBC", "Stussy"]
@@ -50,13 +51,14 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
             let vc = segue.destination as? DetailViewController
             if let index = sender as? Int {
                 
-                let bountyInfo = bountyInfoList[index]
+                let bountyInfo = viewModel.bountyInfo(at: index)
                 
 //                vc?.brand = brandList[index]
 //                vc?.designerName = designerList[index]
+                vc?.viewModel.bountyInfo = bountyInfo
                 
-                vc?.brand = bountyInfo.brand
-                vc?.designerName = bountyInfo.designerName
+//                vc?.brand = bountyInfo.brand
+//                vc?.designerName = bountyInfo.designerName
             }
             
         }
@@ -72,7 +74,7 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //브랜드 개수만큼 출력
         //return brandList.count
-        return bountyInfoList.count
+        return viewModel.numOfBountyInfoList
     }
     
     //재활용되는 cell
@@ -82,7 +84,7 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
             return UITableViewCell()
         }
         //View 선언?
-        let bountyInfo = bountyInfoList[indexPath.row]
+        let bountyInfo = viewModel.bountyInfo(at: indexPath.row)
         
         //let img = UIImage(named: "\(brandList[indexPath.row]).jpeg")
 //        cell.imgView.image = img
@@ -141,21 +143,7 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     */
     
     
-    //MVVM 시작
-    struct BountyInfo {
-        let brand: String
-        let designerName: String
-        
-        var image: UIImage? {
-            return UIImage(named: "\(brand).jpeg")
-        }
-        
-        init(brand: String, designerName: String) {
-            self.brand = brand
-            self.designerName = designerName
-        }
-
-}
+   
 }
 
 class ListCell: UITableViewCell {
@@ -167,5 +155,44 @@ class ListCell: UITableViewCell {
     // identity inspector에서 class 이름으로 해당 이름 변경해줘야해
 }
 
+//MVVM 시작
+struct BountyInfo {
+    let brand: String
+    let designerName: String
+    
+    var image: UIImage? {
+        return UIImage(named: "\(brand).jpeg")
+    }
+    
+    init(brand: String, designerName: String) {
+        self.brand = brand
+        self.designerName = designerName
+    }
+
+}
+// ViewModel이 model을 가지고 있어야 한다.
+class BountyViewModel {
+    //밑에 MVVM 적용을 위해 대체할 let 선언
+    let bountyInfoList: [BountyInfo] = [
+        BountyInfo(brand: "LEMAIRE", designerName: "Christophe Lemaire"),
+        BountyInfo(brand: "Celine", designerName: "Phoebe Philo"),
+        BountyInfo(brand: "Maison Margiela", designerName: "Martin Margiela"),
+        BountyInfo(brand: "Auralee", designerName: "A Japanese"),
+        BountyInfo(brand: "Alyx", designerName: "MMW"),
+        BountyInfo(brand: "JJJJound", designerName: "Justin Saunders"),
+        BountyInfo(brand: "BBC", designerName: "Pharrell Williams"),
+        BountyInfo(brand: "Stussy", designerName: "Ralph Diaz")
+    ]
+    
+    //count를 담을 변수 선언
+    var numOfBountyInfoList: Int {
+        return bountyInfoList.count
+    }
+    
+    //index 및 indexPath.row 접근할 함수 선언
+    func bountyInfo(at index: Int) -> BountyInfo {
+        return bountyInfoList[index]
+    }
+}
 
 

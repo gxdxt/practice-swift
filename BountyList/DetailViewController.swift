@@ -33,7 +33,8 @@ class DetailViewController: UIViewController {
 //    var brand: String? // optional로 선언
 //    var designerName: String?
     
-    var bountyInfo: Bounty
+//    var bountyInfo: BountyInfo?
+    let viewModel = DetailBountyViewModel()
     
     //view가 memory에 올라온 시점에 실행되는 함수
     //보이기 바로 직전
@@ -47,12 +48,23 @@ class DetailViewController: UIViewController {
     //updateUI 이름 정보를 받아와서 UI 변경
     func updateUI(){
         
-        if let brand = self.brand, let designerName = self.designerName {
-            let img = UIImage(named: "\(brand).jpeg")
-        imgView.image = img
-        brandLabel.text = brand
-        designer.text = designerName
-        }
+        if let bountyInfo = viewModel.bountyInfo {
+                    imgView.image = bountyInfo.image
+                    brandLabel.text = bountyInfo.brand
+                    designer.text = "\(bountyInfo.designerName)"
+                } 
+//        if let bountyInfo = self.bountyInfo {
+//            imgView.image = bountyInfo.image
+//            brandLabel.text = bountyInfo.brand
+//            designer.text = "\(bountyInfo.designerName)"
+//        } -----------> 이건 직접 접근하니까 앞으로 ViewModel로 통하게 만들자
+        
+//        if let brand = self.brand, let designerName = self.designerName {
+//            let img = UIImage(named: "\(brand).jpeg")
+//        imgView.image = img
+//        brandLabel.text = brand
+//        designer.text = designerName
+//        }
     }
     
     //버튼 클릭 시, 닫히는 액션
@@ -66,4 +78,12 @@ class DetailViewController: UIViewController {
     // 새로 생긴 line에 identifier 정하기
     // 이제 기본 ViewController에서 해당 Segueway 실행 함수 작성 ---
     
+}
+
+class DetailBountyViewModel {
+    var bountyInfo: BountyInfo?
+    
+    func update(model: BountyInfo?) { //매번 여기를 통할 것이기 때문에
+        bountyInfo = model
+    }
 }
