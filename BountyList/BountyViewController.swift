@@ -91,10 +91,11 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
 //        cell.brandLabel.text = brandList[indexPath.row]
 //        cell.designerLabel.text = "\(designerList[indexPath.row])" //여긴 왜 불러오지??
         
-        cell.imgView.image = bountyInfo.image
-        cell.brandLabel.text = bountyInfo.brand
-        //cell.designerLabel.text = bountyInfo.designerName 이렇게 왜 안하지?
-        cell.designerLabel.text = "\(bountyInfo.designerName)"
+//        cell.imgView.image = bountyInfo.image
+//        cell.brandLabel.text = bountyInfo.brand
+//        //cell.designerLabel.text = bountyInfo.designerName 이렇게 왜 안하지?
+//        cell.designerLabel.text = "\(bountyInfo.designerName)"
+        cell.update(info: bountyInfo)
         
         return cell
         //이거랑 밑에 if문이랑 동일한 코드
@@ -153,6 +154,17 @@ class ListCell: UITableViewCell {
     @IBOutlet weak var designerLabel: UILabel!
     
     // identity inspector에서 class 이름으로 해당 이름 변경해줘야해
+    
+    
+    //Controller가 가지고 있을 필요가 없어서 해당 class로 끌고 내려왔다.
+    func update(info: BountyInfo) {
+        imgView.image = info.image
+        brandLabel.text = info.brand
+        //cell.designerLabel.text = bountyInfo.designerName 이렇게 왜 안하지?
+        designerLabel.text = "\(info.designerName)"
+        
+        //이제 위에 부분에 이 함수 불러야해.
+    }
 }
 
 //MVVM 시작
