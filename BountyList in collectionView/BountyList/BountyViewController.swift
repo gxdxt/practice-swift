@@ -59,28 +59,19 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
         performSegue(withIdentifier: "showDetail", sender: indexPath.item)
     }
     
-}
-
-class ListCell: UITableViewCell {
-    //Cell 안에 들어갈 Element들
-    @IBOutlet weak var imgView: UIImageView!
-    @IBOutlet weak var brandLabel: UILabel!
-    @IBOutlet weak var designerLabel: UILabel!
-    
-    // identity inspector에서 class 이름으로 해당 이름 변경해줘야해
-    
-    
-    //Controller가 가지고 있을 필요가 없어서 해당 class로 끌고 내려왔다.
-    func update(info: BountyInfo) {
-        imgView.image = info.image
-        brandLabel.text = info.brand
-        //cell.designerLabel.text = bountyInfo.designerName 이렇게 왜 안하지?
-        designerLabel.text = "\(info.designerName)"
+    //GridCell들간의 거리를 설정해줄 함수
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        //이제 위에 부분에 이 함수 불러야해.
+        let itemSpacing: CGFloat = 10
+        let textAreaHeight: CGFloat = 65
+        
+        let width: CGFloat = (collectionView.bounds.width - itemSpacing) / 2 //bounds하면 size 알 수 있음
+        let height: CGFloat = width * 1.3 + textAreaHeight
+        
+        return CGSize(width: width, height: height)
     }
-}
     
+}
 
 
 // ViewModel이 model을 가지고 있어야 한다.
