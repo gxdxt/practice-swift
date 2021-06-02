@@ -59,30 +59,55 @@ class DetailViewController: UIViewController {
     
     private func prepareAnimation() {
         //constant 값이 커지면 View가 우측으로 간다.
-        brandLabelCenterX.constant = view.bounds.width
-        designerLabelCenterX.constant = view.bounds.width
+       // brandLabelCenterX.constant = view.bounds.width
+       // designerLabelCenterX.constant = view.bounds.width
+        
+        // View 기본 속성으로 Animating
+        brandLabel.transform = CGAffineTransform(translationX: view.bounds.width, y: 0).scaledBy(x: 3, y: 3).rotated(by: 180)
+        designer.transform = CGAffineTransform(translationX: view.bounds.width, y: 0).scaledBy(x: 3, y: 3).rotated(by: 180)
+        
+        brandLabel.alpha = 0
+        designer.alpha = 0
     }
     
     private func showAnimation() {
-        brandLabelCenterX.constant = 0
-        designerLabelCenterX.constant = 0
+//        brandLabelCenterX.constant = 0
+//        designerLabelCenterX.constant = 0
+//
+//        //layout 자체가 animating이 되도록!
+////        UIView.animate(withDuration: 0.3) {
+////            //지금 constant값(layout)이 변경되었으니까 이거 다시 바꿔줘! 라는 코드
+////            self.view.layoutIfNeeded()
+////        }
+//
+//        //더 디테일하게
+////        UIView.animate(withDuration: 0.3, delay: 0.1,
+////            options: .curveEaseIn, animations: {self.view.layoutIfNeeded()}, completion: nil)
+// //더 더 디테일하게
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 2, options: .allowUserInteraction, animations: {
+            self.brandLabel.transform = CGAffineTransform.identity //이게 기본
+            self.brandLabel.alpha = 1
+        }
+                       , completion: nil)
         
-        //layout 자체가 animating이 되도록!
-//        UIView.animate(withDuration: 0.3) {
-//            //지금 constant값(layout)이 변경되었으니까 이거 다시 바꿔줘! 라는 코드
-//            self.view.layoutIfNeeded()
-//        }
-        
-        //더 디테일하게
-//        UIView.animate(withDuration: 0.3, delay: 0.1,
-//            options: .curveEaseIn, animations: {self.view.layoutIfNeeded()}, completion: nil)
- //더 더 디테일하게
-        UIView.animate(withDuration: 0.5, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 2, options: .allowUserInteraction, animations: {self.view.layoutIfNeeded()}, completion: nil)
-        
+        UIView.animate(withDuration: 1, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 2, options: .allowUserInteraction, animations: {
+            self.designer.transform = CGAffineTransform.identity
+            self.designer.alpha = 1
+        }
+                       , completion: nil)
+
         UIView.transition(with: imgView, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        
+        
+        
+        
+        
     }
 
-    
+    // animating 가능한 View의 속성들
+    // 1. Position & Size
+    // 2. Transformation (scale, rotation)
+    // 3. Appearance (backgroundColor / Alpha)
     
     
     
