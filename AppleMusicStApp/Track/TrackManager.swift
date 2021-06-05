@@ -11,9 +11,13 @@ import AVFoundation
 
 class TrackManager {
     // TODO: 프로퍼티 정의하기 - 트랙들, 앨범들, 오늘의 곡
+    var tracks: [AVPlayerItem] = []
+    var album: [Album] = []
+    var todaysTrack: AVPlayerItem?
     
     // TODO: 생성자 정의하기
     init() {
+//        let playerItem = AVPlayerItem(url: <#T##URL#>) //곡에 대한 url을 이용해서 player object를 생성!
         
     }
 
