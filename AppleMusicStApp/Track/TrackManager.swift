@@ -51,16 +51,28 @@ class TrackManager {
     
     // TODO: 인덱스에 맞는 트랙 로드하기
     func track(at index: Int) -> Track? {
-        return nil
+        let playerItem = tracks[index]
+        let track = playerItem.convertToTrack()
+        return track
     }
 
     // TODO: 앨범 로딩메소드 구현
     func loadAlbums(tracks: [AVPlayerItem]) -> [Album] {
+        let trackList: [Track] = tracks.compactMap { $0.convertToTrack() }
+        let albumDics = Dictionary(grouping: trackList, by: { (track) in track.albumName})
+        var albums: [Album] = []
+        for(key, value) in albumDics {
+            let title = key
+            let tracks = value
+            let album = Album(title: title, tracks: tracks)
+            albums.append(album)
+        }
+        
         return []
     }
 
     // TODO: 오늘의 트랙 랜덤으로 선책
     func loadOtherTodaysTrack() {
-        
+        self.todaysTrack = self.tracks.randomElement() //모든 Array에서 사용할 수 있는 랜덤 함수
     }
 }
