@@ -9,10 +9,14 @@
 import UIKit
 import AVFoundation
 
+
+// 방금 struct로 선언한 것들을 함께 다룰 TrackManager class 선언!!
 class TrackManager {
     // TODO: 프로퍼티 정의하기 - 트랙들, 앨범들, 오늘의 곡
     var tracks: [AVPlayerItem] = []
     var album: [Album] = []
+    
+    // optional로 설정한 이유? - 아마 없을 수도 있으니까?
     var todaysTrack: AVPlayerItem?
     
     // TODO: 생성자 정의하기
@@ -41,7 +45,7 @@ class TrackManager {
 //            return item
 //        }
         
-        //이것도 명확한 표현법인 듯
+        //이것도 명확한 표현법인 듯 -- 'closure' 강의 재수강 필요! > 개념 재적립!
         let items = urls.map { url in
             return AVPlayerItem(url: url)
         }
@@ -49,7 +53,7 @@ class TrackManager {
         return items
     }
     
-    // TODO: 인덱스에 맞는 트랙 로드하기
+    // TODO: 인덱스에 맞는 트랙 로드하기 // 해당 작업이 왜 필요한지 고민해보자
     func track(at index: Int) -> Track? {
         let playerItem = tracks[index]
         let track = playerItem.convertToTrack()
