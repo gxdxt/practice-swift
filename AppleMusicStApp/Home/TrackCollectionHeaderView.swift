@@ -23,9 +23,17 @@ class TrackCollectionHeaderView: UICollectionReusableView {
     
     func update(with item: AVPlayerItem) {
         // TODO: 헤더뷰 업데이트 하기
+        self.item = item
+        guard let track = item.convertToTrack() else { return }
+        
+        self.thumbnailImageView.image = track.artwork
+        self.descriptionLabel.text = "today's pick is \(track.artist)'s album - \(track.albumName), let's listen!"
     }
     
     @IBAction func cardTapped(_ sender: UIButton) {
         // TODO: 탭했을때 처리
+        //노래가 있나 먼저 확인
+        guard let todaysItem = item else { return }
+        tapHandler?(todaysItem)
     }
 }
