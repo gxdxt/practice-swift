@@ -22,6 +22,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var totalDurationLabel: UILabel!
     
     //TODO: SimplePlayer 만들고 프로퍼티 추가
+    let simplePlayer = SimplePlayer.shared
+    
     
     var timeObserver: Any?
     var isSeeking: Bool = false
@@ -68,6 +70,15 @@ class PlayerViewController: UIViewController {
 extension PlayerViewController {
     func updateTrackInfo() {
         // TODO: 트랙 정보 업데이트
+        //Home에서 Player로 띄울 때, simplePlayer에 현재 곡 정보가 들어있다.
+        guard let track = simplePlayer.currentItem?.convertToTrack() else {
+            return
+        }
+        thumbnailImageView.image = track.artwork
+        titleLabel.text = track.title
+        artistLabel.text = track.artist
+        
+        
         
     }
     
