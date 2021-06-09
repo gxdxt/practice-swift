@@ -34,6 +34,14 @@ class PlayerViewController: UIViewController {
         updatePlayButton()
         updateTime(time: CMTime.zero)
         // TODO: TimeObserver 구현
+        
+        //0.1초 단위로 Core Media Time을 주고 싶다!
+        //CMTime(seconds: 1, preferredTimescale: 10) //1초를 10로 나눈다
+        //DispatchQueue는 Main thread에게 0.1초마다 알려주겠다는 뜻
+        
+        timeObserver = simplePlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 10), queue: DispatchQueue.main, using: { time in
+            self.updateTime(time: time)
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,8 +106,8 @@ extension PlayerViewController {
         // currentTime label, totalduration label, slider
         
         // TODO: 시간정보 업데이트, 심플플레이어 이용해서 수정
-        currentTimeLabel.text = secondsToString(sec: 0.0)   // 3.1234 >> 00:03
-        totalDurationLabel.text = secondsToString(sec: 0.0)  // 39.2045  >> 00:39
+        currentTimeLabel.text = secondsToString(sec: simplePlayer.currentTime)   // 3.1234 >> 00:03
+        totalDurationLabel.text = secondsToString(sec: simplePlayer.totalDurationTime)  // 39.2045  >> 00:39
         
         if isSeeking == false {
             // 노래 들으면서 시킹하면, 자꾸 슬라이더가 업데이트 됨, 따라서 시킹아닐때마 슬라이더 업데이트하자
