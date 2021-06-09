@@ -56,6 +56,21 @@ extension HomeViewController: UICollectionViewDataSource {
             //closure 형태로 item -> void
             header.tapHandler = { item -> Void in
                 //player 띄우기
+                //playerViewController 가져오기!
+                let playerStoryBoard = UIStoryboard.init(name: "Player", bundle: nil) //지금 Main 안에 있는거라 따로 Bundle 정하지 않음
+                //player 안에 있는 ViewController를 찾아야해 // header는 밑에 일반 cell 부분 그대로 가져왔지만, self 추가했다 (왜?)
+                guard let playerVC = playerStoryBoard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
+                
+                //2. 이제 데이터 넘기게끔 변수에 넣어야지
+                //let item = self.trackManager.tracks[indexPath.item] -> 이미 여기 tapHandler가 item을 param으로 들고 들어와서 선언할 필요 없어
+                //갈아끼는 변수에 넣기
+                playerVC.simplePlayer.replaceCurrentItem(with: item)
+
+                
+                self.present(playerVC, animated: true, completion: nil)
+                //1. 이거까지 하면 일단 뜨긴 뜸 data는 안 넘어감!
+                
+                
                 print("item : \(item.convertToTrack()?.title)")
             }
             
@@ -70,6 +85,21 @@ extension HomeViewController: UICollectionViewDelegate {
     // 클릭했을때 어떻게 할까?
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO: 곡 클릭시 플레이어뷰 띄우기
+        //playerViewController 가져오기!
+        let playerStoryBoard = UIStoryboard.init(name: "Player", bundle: nil) //지금 Main 안에 있는거라 따로 Bundle 정하지 않음
+        //player 안에 있는 ViewController를 찾아야해
+        guard let playerVC = playerStoryBoard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
+        
+        //2. 이제 데이터 넘기게끔 변수에 넣어야지
+        let item = trackManager.tracks[indexPath.item]
+        //갈아끼는 변수에 넣기
+        playerVC.simplePlayer.replaceCurrentItem(with: item)
+
+        
+        present(playerVC, animated: true, completion: nil)
+        //1. 이거까지 하면 일단 뜨긴 뜸 data는 안 넘어감!
+        
+        
     }
 }
 
