@@ -62,7 +62,13 @@ class PlayerViewController: UIViewController {
     
     @IBAction func togglePlayButton(_ sender: UIButton) {
         // TODO: 플레이버튼 토글 구현
-        
+        if simplePlayer.isPlaying {
+            //재생 중이면, 멈춰!
+            simplePlayer.pause()
+        } else {
+            //멈춰있으면, 진행시켜!
+            simplePlayer.play()
+        }
         updatePlayButton()
     }
 }
@@ -112,5 +118,16 @@ extension PlayerViewController {
     
     func updatePlayButton() {
         // TODO: 플레이버튼 업데이트 UI작업 > 재생/멈춤
+        //configuration 정의를 해줘야 > UI 설정할 수 있어
+        
+        if simplePlayer.isPlaying {
+            let configuration = UIImage.SymbolConfiguration(pointSize: 40)
+            let image = UIImage(systemName: "pause.fill", withConfiguration: configuration)
+            playControlButton.setImage(image, for: .normal) //.normal은 무슨 말이지?
+        } else {
+            let configuration = UIImage.SymbolConfiguration(pointSize: 40)
+            let image = UIImage(systemName: "play.fill", withConfiguration: configuration)
+            playControlButton.setImage(image, for: .normal) //.normal은 무슨 말이지?
+        }
     }
 }
