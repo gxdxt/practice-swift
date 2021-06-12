@@ -10,7 +10,7 @@ import UIKit
 
 
 // TODO: Codable과 Equatable 추가
-struct Todo: Codable, Equatable {
+struct Todo: Codable, Equatable { //protocol 확인
     let id: Int
     var isDone: Bool
     var detail: String
@@ -31,29 +31,50 @@ struct Todo: Codable, Equatable {
 
 class TodoManager {
     
-    static let shared = TodoManager()
+    static let shared = TodoManager() //Singleton 선언
     
     static var lastId: Int = 0
     
     var todos: [Todo] = []
     
     func createTodo(detail: String, isToday: Bool) -> Todo {
-        //TODO: create로직 추가
-        return Todo(id: 1, isDone: false, detail: "2", isToday: true)
+        // [x] TODO: create로직 추가
+        
+        let nextId = TodoManager.lastId + 1
+        TodoManager.lastId = nextId
+        return Todo(id: 1, isDone: false, detail: detail, isToday: isToday)
     }
     
     func addTodo(_ todo: Todo) {
-        //TODO: add로직 추가
+        // [x] TODO: add로직 추가
+        todos.append(todo) // 새로 들어온 todo 그냥 append
+        //바로 디스크에 update
+        saveTodo()
     }
     
     func deleteTodo(_ todo: Todo) {
-        //TODO: delete 로직 추가
+        // [x] TODO: delete 로직 추가
+        // 1. 코드가 깔금함 (퍼포먼스의 차이가 크지 않으면, 보기 좋은 것)
+        todos = todos.filter { $0.id != todo.id }
+        
+        // 2. 성능이 좋음
+//        if let index = todos.firstIndex(of: todo) {
+//            todos.remove(at: index)
+//        }
+    
+        //삭제하고 바로 disk와 sink
+        saveTodo()
         
     }
     
     func updateTodo(_ todo: Todo) {
-        //TODO: updatee 로직 추가
-        
+        // [x] TODO: updatee 로직 추가
+        guard let index = todos.firstIndex(of: todo) else {
+            return
+        }
+        //위에 스스로 값을 mutating 시키는 함수를 설계해 놓았다.
+        todos[index].update(isDone: todo.isDone, detail: todo.detail, isToday: todo.isToday)
+        saveTodo()
     }
     
     func saveTodo() {
