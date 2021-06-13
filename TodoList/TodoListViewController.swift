@@ -90,7 +90,7 @@ extension TodoListViewController: UICollectionViewDataSource {
         
         // [x] TODO: todo 를 이용해서 updateUI
         // [ ] TODO: doneButtonHandler 작성
-        // TODO: deleteButtonHandler 작성
+        // [ ] TODO: deleteButtonHandler 작성
         return cell
     }
     
@@ -146,7 +146,7 @@ class TodoListCell: UICollectionViewCell {
     }
     
     func updateUI(todo: Todo) {
-        // TODO: 셀 업데이트 하기
+        // [x] TODO: 셀 업데이트 하기
         checkButton.isSelected = todo.isDone
         descriptionLabel.text = todo.detail
         descriptionLabel.alpha = todo.isDone ? 0.2 : 1
@@ -163,18 +163,28 @@ class TodoListCell: UICollectionViewCell {
     }
     
     func reset() {
-        // TODO: reset로직 구현
+        // [x] TODO: reset로직 구현
+        descriptionLabel.alpha = 1
+        deleteButton.isHidden = true
+        showStrikeThrough(false)
         
     }
     
     @IBAction func checkButtonTapped(_ sender: Any) {
-        // TODO: checkButton 처리
+        // [x] TODO: checkButton 처리
+        checkButton.isSelected = !checkButton.isSelected
+        let isDone = checkButton.isSelected
+        showStrikeThrough(isDone)
+        descriptionLabel.alpha = isDone ? 0.2 : 1
+        deleteButton.isHidden = !isDone
         
+        
+        doneButtonTapHandler?(isDone)
 
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        // TODO: deleteButton 처리 
+        // [x] TODO: deleteButton 처리 
         deleteButtonTapHandler?()
     }
 }
