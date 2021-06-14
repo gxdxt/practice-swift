@@ -10,7 +10,7 @@ import UIKit
 
 
 // TODO: Codable과 Equatable 추가
-struct Todo: Codable, Equatable { //protocol 확인
+struct Todo: Codable, Equatable { //protocol 확인 Codable을 통해 parsing 작업이 사라졌다. json 형태의 key들이 prop.로 연결되어 있다. 바로 struct 형태로 변경을 Codable 덕분에 가능하게 됐다.
     let id: Int
     var isDone: Bool
     var detail: String

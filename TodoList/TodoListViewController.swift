@@ -33,6 +33,17 @@ class TodoListViewController: UIViewController {
         // disk에 있는 데이터를 불러와야 한다.
         todoListViewModel.loadTasks()
         
+        //struct >> json 형태로 저장
+        let todo = TodoManager.shared.createTodo(detail: "Dear to me", isToday: true)
+        Storage.saveTodo(todo, fileName: "test.json")
+    }
+    
+    //json >> struct로 불러오기
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let todo = Storage.restoreTodo("test.json")
+        print("----> restore from the disk: \(todo)")
     }
     
     @IBAction func isTodayButtonTapped(_ sender: Any) {
