@@ -34,21 +34,22 @@ class TodoListViewController: UIViewController {
         todoListViewModel.loadTasks()
         
         //struct >> json 형태로 저장
-        let todo = TodoManager.shared.createTodo(detail: "Dear to me", isToday: true)
-        Storage.saveTodo(todo, fileName: "test.json")
+//        let todo = TodoManager.shared.createTodo(detail: "Dear to me", isToday: true)
+//        Storage.saveTodo(todo, fileName: "test.json")
     }
     
     //json >> struct로 불러오기
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        let todo = Storage.restoreTodo("test.json")
-        print("----> restore from the disk: \(todo)")
+//
+//        let todo = Storage.restoreTodo("test.json")
+//        print("----> restore from the disk: \(todo)")
     }
-    
+
     @IBAction func isTodayButtonTapped(_ sender: Any) {
-        // TODO: 투데이 버튼 토글 작업
-        
+        // [x] TODO: 투데이 버튼 토글 작업
+        isTodayButton.isSelected = !isTodayButton.isSelected
+        //이전 상태의 반대를 의미한다.
     }
     
     @IBAction func addTaskButtonTapped(_ sender: Any) {
