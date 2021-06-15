@@ -25,7 +25,7 @@ struct Todo: Codable, Equatable { //protocol 확인 Codable을 통해 parsing �
     
     static func == (lhs: Self, rhs: Self) -> Bool {
         // [x] TODO: 동등 조건 추가
-        return lhs == rhs
+        return lhs.id == rhs.id
     }
 }
 
