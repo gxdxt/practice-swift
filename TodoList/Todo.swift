@@ -42,7 +42,7 @@ class TodoManager {
         
         let nextId = TodoManager.lastId + 1
         TodoManager.lastId = nextId
-        return Todo(id: 1, isDone: false, detail: detail, isToday: isToday)
+        return Todo(id: nextId, isDone: false, detail: detail, isToday: isToday)
     }
     
     func addTodo(_ todo: Todo) {
@@ -68,7 +68,7 @@ class TodoManager {
     }
     
     func updateTodo(_ todo: Todo) {
-        // [x] TODO: updatee 로직 추가
+        // [x] TODO: update 로직 추가
         guard let index = todos.firstIndex(of: todo) else {
             return
         }
