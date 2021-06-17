@@ -20,7 +20,7 @@ class TodoListViewController: UIViewController {
     
     // [x] TODO: TodoViewModel 만들기
     let todoListViewModel = TodoViewModel()
-    
+    // TodoViewModel을 선언해야하는 이유?
     
     
     override func viewDidLoad() {
@@ -67,7 +67,7 @@ class TodoListViewController: UIViewController {
         todoListViewModel.addTodo(todo)
         collectionView.reloadData()
         inputTextField.text = "" // textField reset
-        isTodayButton.isSelected = false
+        isTodayButton.isSelected = false // isSelected reset
     }
     
     // TODO: BG 탭했을때, 키보드 내려오게 하기
@@ -75,6 +75,7 @@ class TodoListViewController: UIViewController {
     @IBAction func tapBG(_ sender: Any) {
         //textField focus out 일 때,
         inputTextField.resignFirstResponder()
+        //가장 높은 우선순위(First Responder)에서 사임한다는 뜻
     }
 }
 
