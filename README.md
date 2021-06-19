@@ -614,4 +614,14 @@ var의 생명주기는 해당 var가 프로그램에 어떤 부분에 속해 있
 App을 사용하는 데에는 Network가 필수적이다.<br>
 
 Network에 사용되는 기술로는<br>
-HTTP
+
+*HTTP*
+*CONCURRENCY*
+*GDC*
+*URLSession*
+
+##HTTP##
+POSTMAN이라는 프로그램을 통해 어떻게 통신하는 지, 어떤 정보를 request하면 어떤 정보들이 reponse 오는 지 확인할 수 있다.<br>
+
+##CONCURRENCY##
+동시성을 의미하는 것으로, 실제로 동시에 이루어지진 않고 시분할 스케쥴링과 같은 개념으로 볼 수 있다.<br>
