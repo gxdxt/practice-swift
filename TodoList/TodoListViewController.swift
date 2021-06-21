@@ -32,6 +32,24 @@ class TodoListViewController: UIViewController {
         //키보드가 켜지면 adjustInputView 함수 실행
         
         
+        //GCD
+        //MainQueue
+        DispatchQueue.main.async {
+            //main
+        }
+        //GlobalQueue
+        DispatchQueue.global(qos: .userInteractive).async {
+            // userInteractive가 가장 빠르게
+            // userInitiative
+            // default
+            // utitlity
+            // background
+        }
+        
+        //CustomQueue
+        let currentQueue = DispatchQueue(label: "current", qos: .background, attributes: .concurrent)
+        
+        
         // [x] TODO: 데이터 불러오기
         // disk에 있는 데이터를 불러와야 한다.
         todoListViewModel.loadTasks()
@@ -85,6 +103,8 @@ extension TodoListViewController {
         // [x] TODO: 키보드 높이에 따른 인풋뷰 위치 변경
         //keyboard frame 정보 (위치, 사이즈)
         guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        //guard 문에 대한 공부가 부족하다.
+        
         
         if noti.name == UIResponder.keyboardWillShowNotification {
             let adjustmentHeight = keyboardFrame.height - view.safeAreaInsets.bottom
