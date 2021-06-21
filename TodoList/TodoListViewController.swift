@@ -49,6 +49,19 @@ class TodoListViewController: UIViewController {
         //CustomQueue
         let currentQueue = DispatchQueue(label: "current", qos: .background, attributes: .concurrent)
         
+        //Complex
+        DispatchQueue.global(qos: .background).async {
+            
+            //let image = downloadImgFromServer()
+            DispatchQueue.main.async {
+            //    self.imageView.image = image;
+            }
+            
+            //background에서 받고 main으로 넘겨주는 GCD
+        }
+        
+        //sync : (동기) 앞에 작업이 끝나고 일을 시작
+        //async : (비동기) 앞에 작업이 끝나지 않아도 일을 시작
         
         // [x] TODO: 데이터 불러오기
         // disk에 있는 데이터를 불러와야 한다.
