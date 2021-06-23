@@ -29,8 +29,29 @@ DispatchQueue.global(qos: .background).async {
     //뉴스 데이터 미리 받기, 위치, 영상 등
 }
 
+// - Custom Queue
+let concurrentQueue = DispatchQueue(label: "concurrent", qos: .background, attributes: .concurrent)
+let serialQueue = DispatchQueue(label: "serial", qos: .background)
 
-// Complex
+// Complex Situation
+func downloadImageFromServer() -> UIImage {
+    //Heavy Task
+    return UIImage()
+}
+
+func updateUI(image: UIImage) {
+    
+}
+DispatchQueue.global(qos: .background).async {
+    let image = downloadImageFromServer()
+    
+    //다시 main queue로 넘겨준다. (main thread에서 해야하는 일들은 여기서 다 해야한다.)
+    DispatchQueue.main.async {
+        //update UI
+        updateUI(image: image)
+    }
+    
+}
 
 // Sync, Async
 
