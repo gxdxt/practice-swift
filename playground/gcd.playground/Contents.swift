@@ -55,4 +55,15 @@ DispatchQueue.global(qos: .background).async {
 
 // Sync, Async
 
+DispatchQueue.global(qos: .background).async {
+    for i in 0...5 {
+        print("background \(i)")
+    }
+}
+
+DispatchQueue.global(qos: .userInteractive).async {
+    for i in 0...5 {
+        print("ui \(i)")
+    }
+}
 
