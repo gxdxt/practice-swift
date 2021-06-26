@@ -17,9 +17,18 @@ class ViewController: UIViewController {
     @IBAction func clickBtn(_ sender: Any) {
         print("I'm clicked")
         //changeBackgroundColor()
-        self.hereBtn.backgroundColor = changeBackgroundColor()
+
+        btn1.backgroundColor = changeBackgroundColor()
+        btn2.backgroundColor = changeBackgroundColor()
+        btn3.backgroundColor = changeBackgroundColor()
+        btn4.backgroundColor = changeBackgroundColor()
     }
 
+    @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btn2: UIButton!
+    @IBOutlet weak var btn3: UIButton!
+    @IBOutlet weak var btn4: UIButton!
+   
     func changeBackgroundColor() -> UIColor {
         let randomRed:CGFloat = CGFloat(drand48())
                 
