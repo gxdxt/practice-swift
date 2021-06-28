@@ -38,13 +38,33 @@ relativeURL?.baseURL
 
 // URLComponents >> 왜 쓴다고??
 
-var urlComponets = URLComponents(string: "https://itunes.apple.com/search?")
+var urlComponents = URLComponents(string: "https://itunes.apple.com/search?")
 let mediaQuery = URLQueryItem(name: "media", value: "music")
 let entityQuery = URLQueryItem(name: "unity", value: "song")
-let termQuery = URLQueryItem(name: "term", value: "theweeknd")
+let termQuery = URLQueryItem(name: "term", value: "신중현") //이거 한글 읽을 수 있도록 바뀌네!
 
-urlComponets?.queryItems?.append(mediaQuery)
-urlComponets?.queryItems?.append(entityQuery)
-urlComponets?.queryItems?.append(termQuery)
+urlComponents?.queryItems?.append(mediaQuery)
+urlComponents?.queryItems?.append(entityQuery)
+urlComponents?.queryItems?.append(termQuery)
+
+urlComponents?.url
+urlComponents?.string
+urlComponents?.queryItems
+
+// urlSession = iOS에서 네트워킹하기 위해 필요한 것
+// urlSession을 만들기위해 urlSessionConfiguration을 생성
+// 실제 작업하는 녀석은 urlSessionTask
+
+let config = URLSessionConfiguration
+    .default
+let session = URLSession(configuration: config)
+
+// dataTask
+// uploadTask
+// downloadTask
+
+let dataTask = session.dataTask(with: <#T##URL#>, completionHandler: <#T##(Data?, URLResponse?, Error?) -> Void#>)
+
+
 
 
