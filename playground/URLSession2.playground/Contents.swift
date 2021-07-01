@@ -33,5 +33,20 @@ let dataTask = session.dataTask(with: requestURL) { (data, response, error) in
     //error 먼저 떨어지는 지 확인
     guard error == nil else { return }
     
-    guard let statusCode = response as? HTTPURLResponse)?.statusCode else { return }//down
+    guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }//down
+    
+    let successRange = 200..<300
+    
+    guard successRange.contains(statusCode) else {
+        //handle response error
+        return
+    }
+    
+    guard let resultData = data else {
+        return
+    }
+    
+    print("----> result : \(resultData)")
+    
+    
 }
