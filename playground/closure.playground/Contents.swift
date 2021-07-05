@@ -110,6 +110,9 @@ codeBlockClosure()
 let inputParamClosure: (String) -> Void = { name in
     print("Hello, \(name)")
 }
+//형태를 잘 외워두어야 한다. let name: (paramType) -> returnType = { externalName in
+// ~~~~~~~
+// }
 
 inputParamClosure("Starboy")
 
