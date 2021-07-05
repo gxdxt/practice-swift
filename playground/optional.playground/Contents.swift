@@ -53,7 +53,8 @@ func printParsedInt(from: String) { //String으로부터 parse하겠다.는 뜻
 //    }
     guard let parseInt = Int(from) else {
         print("failed to parse String to Int")
-        return
+        return //여기서 return은 어떤거지?
+        //error: optional.playground:57:5: error: 'guard' body must not fall through, consider using a 'return' or 'throw' to exit the scope
     } //방어막 생성
     print(parseInt)
 }
