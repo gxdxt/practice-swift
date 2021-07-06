@@ -28,6 +28,35 @@ urlComponents.queryItems?.append(termQuery)
 let requestURL = urlComponents.url! //느낌표 하는 이유 =  optional 벗겨내기
 
 
+//1. Response와 Track struct
+struct Response: Codable { //url 답변 오는 것, network 답변 // protocol 선언
+    let resultCount: Int
+    let tracks: [Track]
+    
+    enum CodingKeys: String, CodingKey {
+        case resultCount
+        case tracks = "results"
+    }
+}
+
+struct Track: Codable {
+    let title: String
+    let artistName: String
+    let thumbnailPath: String
+    
+    //key값과 track의 prop.를 일치 시켜주기 >> enum 으로
+    //trackName
+    //artistName
+    //artworkUrl30
+    
+    enum CodingKeys: String, CodingKey {
+        case title = "trackName"
+        case artistName
+        case thumbnailPath = "artworkUrl30"
+    }
+}
+
+
 
 let dataTask = session.dataTask(with: requestURL) { (data, response, error) in
     //error 먼저 떨어지는 지 확인
@@ -46,8 +75,32 @@ let dataTask = session.dataTask(with: requestURL) { (data, response, error) in
         return
     }
     let resultString = String(data: resultData, encoding: .utf8)
-     
-    print("----> result : \(resultString)")
+    
+    //목표 : track list -> object 가져오기
+    
+    
+    //하고싶은 목록
+    // - Data -> Track 목록으로 가져올 것 [Track]
+    // - Track object 생성
+    // - Data에서 structure로 parse >> Codable 이용
+    // - Json 형식의 파일을 object로 만들 때 Codable 이용
+    // - Response, [Track] 총 2개 생성 (response가 track을 감싸고 있다.)
+    
+    //해야할 일
+    // - Response, [Track] struct
+    // - struct의 prop. 이름과 실제 Data의 key 이름 맞추기 // codable decoding을 위해
+    // - parsing (decoding)
+    // - 그럼 이제 track list 가져온다.
+    
+    //
+    
+    
+    
+    
+    
+    
+    
+//    print("----> result : \(resultString)")
     
     
 }
