@@ -97,10 +97,19 @@ let dataTask = session.dataTask(with: requestURL) { (data, response, error) in
     
     
     
+    //2. parsing 및 track list 출력
+    do {
+        let decoder = JSONDecoder() //decoder 생성
+        let response = try decoder.decode(Response.self, from: resultData) //해당 작업이 항상 성공한다는 보장이 없을 때 'try'
+        let tracks = response.tracks
+        
+        print("---> tracks: \(tracks.count)")
+    } catch let error{
+        print("----> error : \(error.localizedDescription)")
+    }
     
     
-    
-//    print("----> result : \(resultString)")
+    print("----> result : \(resultString)")
     
     
 }
