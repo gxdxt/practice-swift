@@ -20,19 +20,21 @@ class SecondController: UIViewController {
         
     }
     
+    
+}
+
+extension SecondController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("\(receivedTotal)")
         return Int(receivedTotal) ?? 0
     }
-}
-
-extension SecondController: UITableViewDataSource {
-   
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eachCell")!
-        return cell
-    }
+
+           return UITableViewCell()
+
+       }
     
     
 }
