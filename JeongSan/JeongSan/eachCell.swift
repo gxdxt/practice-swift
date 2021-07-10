@@ -9,5 +9,6 @@ import Foundation
 import UIKit
 
 class eachCell: UITableViewCell {
-    
+    @IBOutlet weak var eachName: UILabel!
+    @IBOutlet weak var eachPrice: UILabel!
 }
