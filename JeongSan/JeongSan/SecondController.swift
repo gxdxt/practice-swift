@@ -31,8 +31,9 @@ extension SecondController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "eachCell", for: indexPath) as? eachCell else { return UITableViewCell() }
 
-           return UITableViewCell()
+           return cell
 
        }
     
