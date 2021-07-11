@@ -2,40 +2,40 @@
 //  SecondController.swift
 //  JeongSan
 //
-//  Created by 유승태 on 2021/07/09.
+//  Created by 유승태 on 2021/07/12.
 //
-import UIKit
+
 import Foundation
+import UIKit
 
 class SecondController: UIViewController {
+
+    @IBOutlet weak var resultTotal: UILabel!
     
-    @IBOutlet weak var personTableView: UITableView!
-    @IBOutlet weak var printTotal: UILabel!
     var receivedTotal: String = ""
-    
-    override func viewDidLoad(){
+    override func viewDidLoad() {
         super.viewDidLoad()
-        print("total: \(receivedTotal)")
-        self.printTotal.text = receivedTotal
+        // Do any additional setup after loading the view.
+        resultTotal.text = self.receivedTotal
         
     }
-    
-    
+
 }
 
 extension SecondController: UITableViewDelegate, UITableViewDataSource {
     
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("\(receivedTotal)")
-        return Int(receivedTotal) ?? 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "eachCell", for: indexPath) as? eachCell else { return UITableViewCell() }
-
-           return cell
-
-       }
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonCell else { return UITableViewCell() }
+        
+        return cell
+    }
     
-    
-}
+        
+    }
+
