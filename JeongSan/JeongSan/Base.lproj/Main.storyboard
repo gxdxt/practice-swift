@@ -79,6 +79,11 @@
                                     <constraint firstAttribute="height" constant="713" id="2DZ-xF-NC8"/>
                                     <constraint firstAttribute="width" constant="374" id="9Ts-V5-jgj"/>
                                 </constraints>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Tfu-xr-OKr">
+                                    <rect key="frame" x="0.0" y="129.00000034679067" width="374" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="정산하기"/>
+                                </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonCell" rowHeight="80" id="cSL-sR-gKm" customClass="PersonCell" customModule="JeongSan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="374" height="80"/>
@@ -94,7 +99,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRICE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpT-yz-4EG">
-                                                    <rect key="frame" x="20" y="48" width="47.5" height="21"/>
+                                                    <rect key="frame" x="20" y="51" width="47.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -102,10 +107,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="MpT-yz-4EG" firstAttribute="centerX" secondItem="mIA-02-g0W" secondAttribute="centerX" id="4OG-aa-Ora"/>
-                                                <constraint firstItem="MpT-yz-4EG" firstAttribute="leading" secondItem="LhV-Wg-5HK" secondAttribute="leading" constant="20" symbolic="YES" id="DII-vZ-y7H"/>
-                                                <constraint firstItem="MpT-yz-4EG" firstAttribute="top" secondItem="mIA-02-g0W" secondAttribute="top" constant="37" id="Fxu-7Q-Wg6"/>
+                                                <constraint firstItem="MpT-yz-4EG" firstAttribute="leading" secondItem="LhV-Wg-5HK" secondAttribute="leading" constant="20" id="DII-vZ-y7H"/>
+                                                <constraint firstItem="MpT-yz-4EG" firstAttribute="top" secondItem="mIA-02-g0W" secondAttribute="top" constant="40" id="Fxu-7Q-Wg6"/>
                                                 <constraint firstItem="mIA-02-g0W" firstAttribute="top" secondItem="LhV-Wg-5HK" secondAttribute="top" constant="11" id="NHL-pS-05E"/>
-                                                <constraint firstItem="mIA-02-g0W" firstAttribute="leading" secondItem="LhV-Wg-5HK" secondAttribute="leading" constant="20" symbolic="YES" id="zmi-Z6-vva"/>
+                                                <constraint firstAttribute="bottom" secondItem="MpT-yz-4EG" secondAttribute="bottom" constant="8" id="xhx-4e-T2a"/>
+                                                <constraint firstItem="mIA-02-g0W" firstAttribute="leading" secondItem="LhV-Wg-5HK" secondAttribute="leading" constant="20" id="zmi-Z6-vva"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -119,7 +125,7 @@
                                     <outlet property="delegate" destination="hua-ap-c2q" id="pNP-PP-SKC"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="resultTotal" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHd-pD-oIt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="resultTotal" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHd-pD-oIt">
                                 <rect key="frame" x="186" y="785.5" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -129,6 +135,7 @@
                         <viewLayoutGuide key="safeArea" id="v3M-v4-8yF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="PHd-pD-oIt" firstAttribute="leading" secondItem="v3M-v4-8yF" secondAttribute="leading" constant="186" id="Q7a-F5-BrG"/>
                             <constraint firstItem="heC-KF-juz" firstAttribute="centerY" secondItem="v3M-v4-8yF" secondAttribute="centerY" id="RAF-or-Qdt"/>
                             <constraint firstItem="PHd-pD-oIt" firstAttribute="bottom" secondItem="heC-KF-juz" secondAttribute="bottom" constant="46" id="XzS-0z-V4g"/>
                             <constraint firstItem="heC-KF-juz" firstAttribute="centerX" secondItem="v3M-v4-8yF" secondAttribute="centerX" id="pBf-2y-651"/>
@@ -136,6 +143,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="WyZ-xY-N0w"/>
                     <connections>
+                        <outlet property="doJeongSan" destination="Tfu-xr-OKr" id="6eb-o0-lZK"/>
                         <outlet property="resultTotal" destination="PHd-pD-oIt" id="9K8-Ko-DFn"/>
                     </connections>
                 </viewController>
