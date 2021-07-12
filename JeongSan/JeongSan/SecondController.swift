@@ -11,12 +11,14 @@ import UIKit
 class SecondController: UIViewController {
 
     @IBOutlet weak var resultTotal: UILabel!
+    @IBOutlet weak var doJeongSan: UIButton!
     
     var receivedTotal: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         resultTotal.text = self.receivedTotal
+
         
     }
 
