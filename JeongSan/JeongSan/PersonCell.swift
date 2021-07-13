@@ -12,6 +12,8 @@ class PersonCell: UITableViewCell {
     
     @IBOutlet weak var PersonName: UILabel!
     @IBOutlet weak var PersonPrice: UILabel!
+    @IBOutlet weak var InputPersonName: UITextField!
+    @IBOutlet weak var InputPersonPrice: UITextField!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
