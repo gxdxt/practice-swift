@@ -12,6 +12,9 @@ class SecondController: UIViewController {
 
     @IBOutlet weak var resultTotal: UILabel!
     @IBOutlet weak var doJeongSan: UIButton!
+    @IBOutlet weak var PersonList: UITableView!
+    @IBOutlet weak var PersonCell: PersonCell!
+    
     
     var receivedTotal: String = ""
     override func viewDidLoad() {
@@ -19,23 +22,40 @@ class SecondController: UIViewController {
         // Do any additional setup after loading the view.
         resultTotal.text = self.receivedTotal
 
-        
     }
     
     @IBAction func moveResult(_ sender: Any) {
-        
-        var Payers: [Payer]?
-        var Person: Payer?
-        let total: Int = Int(receivedTotal)!
-        
-        for Index in 0...total {
-            //let cell =
-            //Person.name = cell[Index].InputPersonName.text
-            //Person.price = cell[Index].InputPersonName.text
-            Payers?.append(<#T##newElement: Payer##Payer#>)
+        //1. textField에 nil 값 validation
+        if let textName = PersonCell.InputPersonName.text, textName.isEmpty {
+            doJeongSan.isEnabled = true
+        } else {
             
         }
         
+        //2. 각각의 PersonCell에 있는 InputPersonName.text, InputPersonPrice.text를 Person: Payer로 구성
+        
+        //3. 해당 Person들을 Payers: [Payer]에 Append
+        
+        //4. Payers를 다음 ResultController로 넘긴다.
+        
+        //TextField에 있는 값들을 각각의 Payer의 넣어 순서에 맞게 배열 Payers에 넣는다.
+        guard let vc =  storyboard?.instantiateViewController(identifier: "ResultController") as? ResultController else
+              { return }
+        //vc.receivedTotal = self.PersonList.in
+        
+        //print("\(String(describing: vc.receivedTotal)) ")
+        self.present(vc, animated: true, completion: nil)
+        
+        
+        var Person: Payer?
+        let total: Int = Int(receivedTotal)!
+//        func putInside(_ tableView: UITableView, cellForRowAt indexPath: IndexPath){
+//            for i in 0...total {
+//                Person?.name = String(PersonList.cellForRow(at: [0, i]).InputPersonName.text)
+//                Person?.price = Int(PersonList.cellForRow(at: [0, i]).InputPersonPrice.text)
+//                Payers?.append(Person!)
+//            }
+//        }
         guard let vc =  storyboard?.instantiateViewController(identifier: "ResultController") as? ResultController else
               { return }
            // vc.receivedTotal = self.TotalNum.text!
@@ -45,11 +65,13 @@ class SecondController: UIViewController {
         
     }
     
+   
+    
 
 }
 
 extension SecondController: UITableViewDelegate, UITableViewDataSource {
-    
+    //TextField값을 위해 protocol 추가
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Int(receivedTotal)!
@@ -57,8 +79,8 @@ extension SecondController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonCell else { return UITableViewCell() }
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath)
+
         return cell
     }
     
