@@ -38,8 +38,14 @@ class SecondController: UIViewController {
         }
         
         //2. 각각의 PersonCell에 있는 InputPersonName.text, InputPersonPrice.text를 Person: Payer로 구성
+        let indexPath = IndexPath(row: 0, section: 0)
+        if let cell = PersonList.cellForRow(at: indexPath) as? PersonCell {
+            let name = PersonCell.InputPersonName.text
+            let price = PersonCell.InputPersonPrice.text
+        }   
         
         //3. 해당 Person들을 Payers: [Payer]에 Append
+
         
         //4. Payers를 다음 ResultController로 넘긴다.
         
