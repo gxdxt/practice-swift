@@ -16,6 +16,8 @@ class SecondController: UIViewController {
     @IBOutlet weak var PersonCell: PersonCell!
     
     
+    let payer = Payer.shared//singleton
+    
     var receivedTotal: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,9 @@ class SecondController: UIViewController {
     
     @IBAction func moveResult(_ sender: Any) {
         //1. textField에 nil 값 validation
+        guard PersonCell.InputPersonName.text != nil else {
+            return 
+        }
         if let textName = PersonCell.InputPersonName.text, textName.isEmpty {
             doJeongSan.isEnabled = true
         } else {
