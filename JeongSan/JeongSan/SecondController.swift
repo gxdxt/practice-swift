@@ -17,7 +17,7 @@ class SecondController: UIViewController {
     
     
     let payer = Payer.shared//singleton
-    
+    var Payers: [Payer]?
     var receivedTotal: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,7 @@ class SecondController: UIViewController {
         resultTotal.text = self.receivedTotal
 
     }
+    let total: Int = Int(receivedTotal)!
     
     @IBAction func moveResult(_ sender: Any) {
         //1. textField에 nil 값 validation
@@ -38,11 +39,9 @@ class SecondController: UIViewController {
         }
         
         //2. 각각의 PersonCell에 있는 InputPersonName.text, InputPersonPrice.text를 Person: Payer로 구성
-        let indexPath = IndexPath(row: 0, section: 0)
-        if let cell = PersonList.cellForRow(at: indexPath) as? PersonCell {
-            let name = PersonCell.InputPersonName.text
-            let price = PersonCell.InputPersonPrice.text
-        }   
+        
+
+        
         
         //3. 해당 Person들을 Payers: [Payer]에 Append
 
@@ -58,8 +57,20 @@ class SecondController: UIViewController {
         self.present(vc, animated: true, completion: nil)
         
         
-        var Person: Payer?
+        
         let total: Int = Int(receivedTotal)!
+        for i in 0...total{
+        let indexPath = IndexPath(row: i, section: 0)
+        if let OneCell = PersonList.cellForRow(at: indexPath) as? PersonCell {
+            let OneCellName = OneCell.InputPersonName.text
+            let OneCellPrice = OneCell.InputPersonPrice.text
+            payer.name = OneCellName
+            payer.price = Int(OneCellPrice!)
+            Payers?.append(payer)
+            payer.name = ""
+            payer.price = 0
+        }
+        }
 //        func putInside(_ tableView: UITableView, cellForRowAt indexPath: IndexPath){
 //            for i in 0...total {
 //                Person?.name = String(PersonList.cellForRow(at: [0, i]).InputPersonName.text)
