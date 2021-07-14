@@ -8,11 +8,15 @@
 import Foundation
 import UIKit
 
-struct Payer {
+class Payer {
+    static let shared = Payer() //singleton
+    
     var name: String?
-    var price: Int;
+    var price: Int?
     
     func printPayer(_ name: String, _ price: Int){
         return print("name: \(name), price: \(price) ")
     }
+    
+    private init() { }
 }
