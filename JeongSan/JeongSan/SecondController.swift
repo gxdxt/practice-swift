@@ -21,6 +21,30 @@ class SecondController: UIViewController {
 
         
     }
+    
+    @IBAction func moveResult(_ sender: Any) {
+        
+        var Payers: [Payer]?
+        var Person: Payer?
+        let total: Int = Int(receivedTotal)!
+        
+        for Index in 0...total {
+            //let cell =
+            //Person.name = cell[Index].InputPersonName.text
+            //Person.price = cell[Index].InputPersonName.text
+            Payers?.append(<#T##newElement: Payer##Payer#>)
+            
+        }
+        
+        guard let vc =  storyboard?.instantiateViewController(identifier: "ResultController") as? ResultController else
+              { return }
+           // vc.receivedTotal = self.TotalNum.text!
+        
+        //print("\(String(describing: vc.receivedTotal)) ")
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
 
 }
 
@@ -37,6 +61,7 @@ extension SecondController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
     
         
     }
