@@ -25,18 +25,22 @@ class SecondController: UIViewController {
         resultTotal.text = self.receivedTotal
 
     }
-    let total: Int = Int(receivedTotal)!
+    
     
     @IBAction func moveResult(_ sender: Any) {
+        // 1.1 경고창을 위한 alert 선언
+        let alert = UIAlertController(title: "경고", message: "입력하지 않은 부분이 있습니다.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in NSLog("the \"OK\" alert is occured. ")}))
         //1. textField에 nil 값 validation
         guard PersonCell.InputPersonName.text != nil else {
-            return 
+            return self.present(alert, animated: true, completion: nil)
         }
         if let textName = PersonCell.InputPersonName.text, textName.isEmpty {
             doJeongSan.isEnabled = true
         } else {
             
         }
+        
         
         //2. 각각의 PersonCell에 있는 InputPersonName.text, InputPersonPrice.text를 Person: Payer로 구성
         
@@ -109,4 +113,6 @@ extension SecondController: UITableViewDelegate, UITableViewDataSource {
     
         
     }
+
+
 
