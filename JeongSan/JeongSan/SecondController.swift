@@ -28,11 +28,13 @@ class SecondController: UIViewController {
     
     
     @IBAction func moveResult(_ sender: Any) {
-        // 1.1 경고창을 위한 alert 선언
+        // 0. 경고창을 위한 alert 선언
         let alert = UIAlertController(title: "경고", message: "입력하지 않은 부분이 있습니다.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in NSLog("the \"OK\" alert is occured. ")}))
         //1. textField에 nil 값 validation
-        guard PersonCell.InputPersonName.text != nil else {
+        guard PersonCell == nil else {
+            //계속 돌리면 여기가 nil이라고 경고창이 뜬다. 여기 전에서 PersonCell에 값을 집어넣을 수 있어야 겠다.
+            //아니면 여기선 그냥 단순히 TextField에 대한 vacancy 에만 경고표시를 해줘도 될듯?!
             return self.present(alert, animated: true, completion: nil)
         }
         if let textName = PersonCell.InputPersonName.text, textName.isEmpty {
