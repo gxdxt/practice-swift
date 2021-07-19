@@ -48,29 +48,35 @@ func solution(_ numbers:[Int]) -> String {
         var y: Int
         switch divideByTen(numbers[i]) {
         case 0 :
-            y = 10 - numbers[i]
+            y = (10 - numbers[i]) * 100
             distanceFromNine.updateValue(y, forKey: numbers[i])
         case 1 :
-            y = 100 - numbers[i]
+            y = (100 - numbers[i]) * 10
             distanceFromNine.updateValue(y, forKey: numbers[i])
-        default:
-            print(divideByTen(numbers[i]))
+        default :
             y = 1000 - numbers[i]
             distanceFromNine.updateValue(y, forKey: numbers[i])
         }
     }
-    distanceFromNine
+    let sortedDistance = distanceFromNine.sorted{$0.value < $1.value}
+    sortedDistance[1].key
+    
+    var finalArray: [String] = []
+    //String 배열에 넣기
+    for i in 0..<sortedDistance.count {
+        finalArray.append(String(sortedDistance[i].key))
+    }
+    
     
     
     //배열에 넣기
     
     //가장 큰 수 구하기
     //근데 가장 큰 수 구하는 거라면 array.sorted해서 뒤에서부터 넣으면 끝 아냐?
-    let sortedNumbers = numbers.sorted(by: >)
     //가장 높은 자리 값이 9면 맨 앞에
-    var greatest: Int = 0
-    for i in 0..<sortedNumbers.count {
-        greatest += sortedNumbers[sortedNumbers.count-1-i] * (squared(10, i))
+    var greatest: String = ""
+    for i in 0..<finalArray.count {
+        greatest += finalArray[i]
     }
     let result: String = String(greatest)
     

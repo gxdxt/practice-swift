@@ -3,7 +3,12 @@
    version = "3.0">
    <TimelineItems>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "file:///Users/yst/local/swift/playground/Algorithm/algorithm_greatest.playground#CharacterRangeLen=16&amp;CharacterRangeLoc=1451&amp;EndingColumnNumber=0&amp;EndingLineNumber=62&amp;StartingColumnNumber=5&amp;StartingLineNumber=61&amp;Timestamp=648395883.341859"
+         documentLocation = "file:///Users/yst/local/swift/playground/Algorithm/algorithm_greatest.playground#CharacterRangeLen=53&amp;CharacterRangeLoc=1461&amp;EndingColumnNumber=25&amp;EndingLineNumber=61&amp;StartingColumnNumber=42&amp;StartingLineNumber=60&amp;Timestamp=648397890.150718"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/yst/local/swift/playground/Algorithm/algorithm_greatest.playground#CharacterRangeLen=490&amp;CharacterRangeLoc=1488&amp;EndingColumnNumber=17&amp;EndingLineNumber=82&amp;StartingColumnNumber=69&amp;StartingLineNumber=60&amp;Timestamp=648397890.150905"
          selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>
