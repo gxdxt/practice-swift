@@ -12,6 +12,39 @@ squared(2, 3)
 
 func solution(_ numbers:[Int]) -> String {
     //numbers의 있는 숫자들을 조합하여 양의 정수 만들기
+    //애초에 String으로 받아서 이어 붙이는 게 제일 나을듯
+    var StringNumbers: [String] = []
+    for i in 0..<numbers.count {
+        StringNumbers.append(String(numbers[i]))
+    }
+    var Combined: [String] = []
+    var combined: String = ""
+    for i in 0..<numbers.count {
+        combined += StringNumbers[i]
+    }
+    Combined.append(combined)
+    //Array의 순서를 계속해서 바꾸면서 만들 줄 알아야해
+    
+    // 10과 거리가 가까운 만큼
+    // 1의 자리는 10과
+    // 10의 자리는 100과
+    // 100의 자리는 1000과
+    var distanceFromNine: [Int : Int] = [:]
+    for i in 0..<numbers.count {
+        var y: Int
+        switch numbers[i]/10 {
+        case 0 :
+            y = 10 - numbers[i]
+            distanceFromNine.updateValue(y, forKey: numbers[i])
+        case 1 :
+            y = 100 - numbers[i]
+            distanceFromNine.updateValue(y, forKey: numbers[i])
+        default:
+            y = 1000 - numbers[i]
+            distanceFromNine.updateValue(y, forKey: numbers[i])
+        }
+    }
+    
     
     //배열에 넣기
     
