@@ -8,6 +8,18 @@ func squared(_ i: Int, _ j: Int) -> Int {
     return i * squared(i, j-1)
 }
 
+var count: Int = 0
+func divideByTen(_ x: Int) -> Int {
+    count = 0
+    var x = x/10
+    while x > 0 {
+        x = x/10
+        count += 1
+    }
+    return count
+}
+divideByTen(34)
+
 squared(2, 3)
 
 func solution(_ numbers:[Int]) -> String {
@@ -29,10 +41,12 @@ func solution(_ numbers:[Int]) -> String {
     // 1의 자리는 10과
     // 10의 자리는 100과
     // 100의 자리는 1000과
+    //몇의 자리인지 계산하는 함수
+    
     var distanceFromNine: [Int : Int] = [:]
     for i in 0..<numbers.count {
         var y: Int
-        switch numbers[i]/10 {
+        switch divideByTen(numbers[i]) {
         case 0 :
             y = 10 - numbers[i]
             distanceFromNine.updateValue(y, forKey: numbers[i])
@@ -40,10 +54,12 @@ func solution(_ numbers:[Int]) -> String {
             y = 100 - numbers[i]
             distanceFromNine.updateValue(y, forKey: numbers[i])
         default:
+            print(divideByTen(numbers[i]))
             y = 1000 - numbers[i]
             distanceFromNine.updateValue(y, forKey: numbers[i])
         }
     }
+    distanceFromNine
     
     
     //배열에 넣기
