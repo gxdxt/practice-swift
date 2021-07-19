@@ -43,22 +43,24 @@ func solution(_ numbers:[Int]) -> String {
     // 100의 자리는 1000과
     //몇의 자리인지 계산하는 함수
     
-    var distanceFromNine: [Int : Int] = [:]
+    var distanceFromNine: [Int : Double] = [:]
     for i in 0..<numbers.count {
-        var y: Int
+        var y: Double
         switch divideByTen(numbers[i]) {
         case 0 :
-            y = (10 - numbers[i]) * 100
+            y = Double(10 - numbers[i]) * 100.1
             distanceFromNine.updateValue(y, forKey: numbers[i])
         case 1 :
-            y = (100 - numbers[i]) * 10
+            y = Double(100 - numbers[i]) * 10.1
             distanceFromNine.updateValue(y, forKey: numbers[i])
         default :
-            y = 1000 - numbers[i]
+            y = Double(1000 - numbers[i])
             distanceFromNine.updateValue(y, forKey: numbers[i])
         }
     }
-    let sortedDistance = distanceFromNine.sorted{$0.value < $1.value}
+    let sortedDistance = distanceFromNine.sorted{$0.value < $1.value }
+    //value가 값을 경우 key값이 작은 걸 먼저,,,,
+    
     sortedDistance[1].key
     
     var finalArray: [String] = []
@@ -84,6 +86,7 @@ func solution(_ numbers:[Int]) -> String {
 }
 
 solution([3, 30, 34, 5, 9])
-//엉키네,,,
+solution([6, 10, 2])
+
 
 
