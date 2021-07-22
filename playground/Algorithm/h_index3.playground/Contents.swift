@@ -5,15 +5,17 @@ func solution(_ citations:[Int]) -> Int {
     let sorted: [Int] = citations.sorted(by: >)
     var result: [Int] = []
     for i in 0..<citations.count {
-        if i+1 >= sorted[i] && citations.count - i <= sorted[i] {
+        if i+1 >= sorted[i] {
             result.append(sorted[i])
         } else {
             continue
         }
     }
+    result
     
     
     return result==[] ? 0 : result[0]
 }
 solution([1])
-solution([3, 0, 6, 1, 5])
+solution([4, 4, 4, 4, 3])
+solution([10, 100]) // 이 반례가 있었다,,,
