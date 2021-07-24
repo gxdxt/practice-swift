@@ -7,26 +7,31 @@ func solution(_ answers:[Int]) -> [Int] {
     var a: [Int] = [1, 2, 3, 4, 5]
     var b: [Int] = [2, 1, 2, 3, 2, 4, 2, 5]
     var c: [Int] = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
-    var result: [Int] = []
+    var result: [Int : Int] = [:]
     for i in 0..<answers.count {
         a.insert(a[i], at: i+5)
         b.insert(b[i], at: i+8)
         c.insert(c[i], at: i+10)
-        switch answers[i] {
-        case a[i] : right1 += 1
-        case b[i] : right2 += 1
-        case c[i] : right3 += 1
-        default : continue
+        if answers[i] == a[i] {
+            right1 += 1
+        }
+        if answers[i] == b[i] {
+            right2 += 1
+        }
+        if answers[i] == c[i] {
+            right3 += 1
+        } else {
+            continue
+        
         }
     }
-    result.append(right1)
-    result.append(right2)
-    result.append(right3)
-    result.sort(by: >)
-    ㅌㅈ
+    result.updateValue(right1, forKey: 1)
+    result.updateValue(right2, forKey: 2)
+    result.updateValue(right3, forKey: 3)
+    result.sorted(by: >)
     
-    return result
+    return []
 }
 
-solution([1,2,3,4,5])
+solution([1,3,2,4,2])
 

@@ -3,7 +3,12 @@
    version = "3.0">
    <TimelineItems>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "file:///Users/yst/local/swift/playground/Algorithm/giveupmath.playground#CharacterRangeLen=6&amp;CharacterRangeLoc=711&amp;EndingColumnNumber=0&amp;EndingLineNumber=28&amp;StartingColumnNumber=12&amp;StartingLineNumber=27&amp;Timestamp=648662678.111703"
+         documentLocation = "file:///Users/yst/local/swift/playground/Algorithm/giveupmath.playground#CharacterRangeLen=3&amp;CharacterRangeLoc=844&amp;EndingColumnNumber=0&amp;EndingLineNumber=33&amp;StartingColumnNumber=11&amp;StartingLineNumber=32&amp;Timestamp=648827830.810379"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/yst/local/swift/playground/Algorithm/giveupmath.playground#CharacterRangeLen=19&amp;CharacterRangeLoc=808&amp;EndingColumnNumber=24&amp;EndingLineNumber=30&amp;StartingColumnNumber=5&amp;StartingLineNumber=30&amp;Timestamp=648827830.8105561"
          selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>
