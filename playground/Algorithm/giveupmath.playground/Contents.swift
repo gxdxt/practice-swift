@@ -28,7 +28,8 @@ func solution(_ answers:[Int]) -> [Int] {
     result.updateValue(right1, forKey: 1)
     result.updateValue(right2, forKey: 2)
     result.updateValue(right3, forKey: 3)
-    result.sorted(by: >)
+    let sorted: [Int:Int]  = result.sorted(by: >)
+    result
     
     return []
 }
