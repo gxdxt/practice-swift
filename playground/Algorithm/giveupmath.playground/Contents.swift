@@ -28,10 +28,12 @@ func solution(_ answers:[Int]) -> [Int] {
     result.updateValue(right1, forKey: 1)
     result.updateValue(right2, forKey: 2)
     result.updateValue(right3, forKey: 3)
-    let sorted: [Int:Int]  = result.sorted(by: >)
-    result
+    result.sorted(by: >).min(by: >)
+    result.max(by: >)!.key
+    var finalResult: [Int] = []
+    finalResult.append(result.max(by: >)!.key)
     
-    return []
+    return finalResult
 }
 
 solution([1,3,2,4,2])
