@@ -28,13 +28,20 @@ func solution(_ answers:[Int]) -> [Int] {
     result.updateValue(right1, forKey: 1)
     result.updateValue(right2, forKey: 2)
     result.updateValue(right3, forKey: 3)
-    result.sorted(by: >).min(by: >)
-    result.max(by: >)!.key
     var finalResult: [Int] = []
-    finalResult.append(result.max(by: >)!.key)
+    let max:Int = result.max(by: >)!.value
+    for i in 1..<result.count+1 {
+        if max == result[i] {
+            result[i]
+            finalResult.append(i)
+        } else {
+            continue
+        }
+    }
+    
     
     return finalResult
 }
 
-solution([1,3,2,4,2])
+solution([1,3,2,4,5])
 
