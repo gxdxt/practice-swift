@@ -22,6 +22,7 @@ func soluction(_ answer: [Int]) -> [Int] {
             result[2] += 1
         }
         
+    }
         let max = result.max()
         for i in 0..<result.count {
             if max == result[i]{
@@ -29,7 +30,6 @@ func soluction(_ answer: [Int]) -> [Int] {
             }
            
         }
-    }
     
     return final
 }
