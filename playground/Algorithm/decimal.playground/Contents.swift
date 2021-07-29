@@ -2,15 +2,11 @@ import Foundation
 
 func solution(_ numbers:String) -> Int {
     //String -> Int로 casting하고 split
-    var firstSplit: [Int] = []
-    var intNumbers: Int = strlen(numbers)
-    var divide: Int?
-    for _ in 0..<strlen(numbers) {
-        divide = intNumbers % 10
-        intNumbers = intNumbers/10
-        firstSplit.append(divide!)
-    }
-    firstSplit
+    //17 >> 1, 7, 17, 71
+    Array(numbers)
+    //와 Split 필요 없이 그냥 Array 안에 집어 넣으면 하나씩 들어가네,,,
+    
+    
     
     //먼저 만들 수 있는 모든 숫자들 조회
     var num: [Int] = []
