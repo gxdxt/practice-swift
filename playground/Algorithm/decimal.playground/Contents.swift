@@ -3,25 +3,28 @@ import Foundation
 func solution(_ numbers:String) -> Int {
     //String -> Int로 casting하고 split
     //17 >> 1, 7, 17, 71
-    Array(numbers)
+    Array(numbers)[1]
     //와 Split 필요 없이 그냥 Array 안에 집어 넣으면 하나씩 들어가네,,,
+    let arrayNum = Array(numbers)
+    //위에는 되는데, 왜 빈 Array로 선언한 var이나 let에는 못넣는거지?
     
     
+    arrayNum[0]
     
     //먼저 만들 수 있는 모든 숫자들 조회
     var allKindOfNum: [Int] = []
     var targetNum: Int?
     var resultNum: Int?
-//    for i in 0..<Array(numbers).count{
-//        targetNum = Int(numInArray[i])
-//        for j in 0..<numInArray.count{
-//            if i == j {
-//                continue
-//            }
-//            resultNum = targetNum! * Int(numInArray[j])!
-//            allKindOfNum.append(resultNum!)
-//        }
-//    }
+    for i in 0..<arrayNum.count{
+        targetNum = Int(String(arrayNum[i]))
+        for j in 0..<arrayNum.count{
+            if i == j {
+                continue
+            }
+            resultNum = targetNum! * Int(String(arrayNum[j]))!
+            allKindOfNum.append(resultNum!)
+        }
+    }
     allKindOfNum
     
     
