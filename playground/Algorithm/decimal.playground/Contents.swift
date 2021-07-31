@@ -13,19 +13,18 @@ func solution(_ numbers:String) -> Int {
     
     //먼저 만들 수 있는 모든 숫자들 조회
     var allKindOfNum: [Int] = []
-    var targetNum: Int?
-    var resultNum: Int?
+    var targetNum: String?
+    var resultNum: String?
     for i in 0..<arrayNum.count{
-        targetNum = Int(String(arrayNum[i]))
+        targetNum = String(arrayNum[i])
         for j in 0..<arrayNum.count{
             if i == j {
                 continue
             }
-            resultNum = targetNum! * Int(String(arrayNum[j]))!
-            allKindOfNum.append(resultNum!)
+            
         }
     }
-    allKindOfNum
+    
     
     
     //소수인지 판별
