@@ -12,21 +12,24 @@ func solution(_ numbers:String) -> Int {
     arrayNum[0]
     
     //먼저 만들 수 있는 모든 숫자들 조회
-    var allKindOfNum: [Int] = []
+    var allNum: [Int] = []
     var targetNum: String?
     var resultNum: String?
-    for i in 0..<arrayNum.count{
-        targetNum = String(arrayNum[i])
-        for j in 0..<arrayNum.count{
-            if i == j {
-                continue
-            }
-            
-        }
-    }
+//    for i in 0..<arrayNum.count{
+//        targetNum = String(arrayNum[i])
+//        for j in 0..<arrayNum.count{
+//            if i == j {
+//                continue
+//            }
+//
+//        }
+//    }
     //조합
     //하나씩 다 넣고, 그 다음은 둘이 합치는 걸로 넣고, ... 모든 수를 합치는 걸로 넣고
-    
+    for i in  0..<arrayNum.count {
+        targetNum = String(arrayNum[i])
+        allNum.append(Int(targetNum))
+    }
     
     
     //소수인지 판별
