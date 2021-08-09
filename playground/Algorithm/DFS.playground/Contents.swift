@@ -7,7 +7,11 @@ func solution(_ numbers:[Int], _ target:Int) -> Int {
     var count = 0
     
     func dfs(_ depth: Int, _ sum: Int){
-        
+        if depth == numbersCopy.count {
+            if sum == targetCopy {
+                count += 1
+            }
+        }
     }
     return 0
 }
