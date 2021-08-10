@@ -1,19 +1,23 @@
 import Foundation
+var numbersCopy = [Int]()
+var targetCopy = 0
+var count = 0
+
+func dfs(_ depth: Int, _ sum: Int){
+    if depth == numbersCopy.count {
+        if sum == targetCopy {
+            count += 1
+        }
+        return
+    }
+    dfs(depth + 1, sum + numbersCopy[depth])
+    dfs(depth + 1, sum - numbersCopy[depth])
+}
 
 func solution(_ numbers:[Int], _ target:Int) -> Int {
     //DFS는 Depth First Search의 약자로 해당 가지를 타고 들어갈 때에 끝까지 타고 들어가는 모습을 보여준다.
-    var numbersCopy = [Int]()
-    var targetCopy = 0
-    var count = 0
-    
-    func dfs(_ depth: Int, _ sum: Int){
-        if depth == numbersCopy.count {
-            if sum == targetCopy {
-                count += 1
-            }
-        }
-    }
-    return 0
+
+    return count
 }
 
 //n개의 음이 아닌 정수가 있습니다. 이 수를 적절히 더하거나 빼서 타겟 넘버를 만들려고 합니다. 예를 들어 [1, 1, 1, 1, 1]로 숫자 3을 만들려면 다음 다섯 방법을 쓸 수 있습니다.
