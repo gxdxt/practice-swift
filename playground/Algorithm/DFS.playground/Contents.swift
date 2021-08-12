@@ -10,6 +10,7 @@ func dfs(_ depth: Int, _ sum: Int){
         }
         return
     }
+    //자기 자신의 정의 안에다가 자기 자신 함수 넣는다? 재귀 recursive같은 건가?
     dfs(depth + 1, sum + numbersCopy[depth])
     dfs(depth + 1, sum - numbersCopy[depth])
 }
